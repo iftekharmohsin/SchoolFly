@@ -7,16 +7,11 @@
     <artifactId>SchoolFly</artifactId>
     <version>1.0-SNAPSHOT</version>
   </parent>
-  <groupId>com.frozan</groupId>
-  <artifactId>SchoolFly-App</artifactId>
-  <version>1.0-SNAPSHOT</version>
-  <name>SchoolFly-App</name>
+   <artifactId>SchoolFly-App</artifactId>
+   <name>SchoolFly-App</name>
+   <packaging>war</packaging>
   <url>http://maven.apache.org</url>
-    <parent>
-  <groupId>com.frozan</groupId>
-  <artifactId>SchoolFly</artifactId>
-  <version>1.0-SNAPSHOT</version>
-  </parent>
+
   <dependencies>
     <dependency>
       <groupId>junit</groupId>

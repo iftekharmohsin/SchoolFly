@@ -37,7 +37,7 @@ public class ChatController {
 		this.chatRequests.put(deferredResult, messageIndex);
 
 		deferredResult.onCompletion(new Runnable() {
-			@Override
+			
 			public void run() {
 				chatRequests.remove(deferredResult);
 			}
