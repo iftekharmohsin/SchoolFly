@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:jdbc="http://www.springframework.org/schema/jdbc"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc-3.0.xsd">
+
+<bean id="dataSource" class ="org.springframework.jdbc.datasource.DriverManagerDataSource">
+	<property name="url" value="jdbc:oracle:thin:@//localhost:1521/xe"/>
+	<property name="username" value="schoolify"/>
+	<property name="password" value="schoolify"/>
+	<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver"/>
+
+</bean>
+
+<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.show_sql">true</prop>
+				<prop key="hibernate.hbm2ddl.auto">update</prop>
+				<prop key="hibernate.dialect">org.hibernate.dialect.Oracle10gDialect</prop>
+			</props>
+		</property>
+		<property name="annotatedClasses">
+			<list>	
+				<value>com.frozan.dao.timetable.DailyTimeTableHlo</value>
+				<value>com.frozan.dao.timetable.ExamTimeTableHlo</value>
+			</list>
+		</property>
+	</bean>
+	<bean id="hibernateTemplate" class="org.springframework.orm.hibernate3.HibernateTemplate">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="dailyTimeTableDao" class="com.frozan.dao.timetable.DailyTimeTableDao">
+		<constructor-arg ref="hibernateTemplate" />
+	</bean>
+	<bean id="dailyTimeTableSvc" class="com.frozan.service.timetable.DailyTimeTableSvc">
+	<constructor-arg ref="dailyTimeTableDao"/>
+	</bean>
+	<bean id="examTimeTableDao" class="com.frozan.dao.timetable.ExamTimeTableDao">
+	<constructor-arg ref="hibernateTemplate"></constructor-arg>
+	</bean>
+	<bean id="examTimeTableSvc" class="com.frozan.service.timetable.ExamTimeTableSvc">
+	<constructor-arg ref="examTimeTableDao"></constructor-arg>
+	</bean>
+
+</beans>
