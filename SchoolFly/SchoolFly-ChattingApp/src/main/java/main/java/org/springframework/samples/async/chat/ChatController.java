@@ -1,4 +1,4 @@
-package com.frozan.async.chat;
+package org.springframework.samples.async.chat;
 
 import java.util.Collections;
 import java.util.List;
@@ -37,7 +37,7 @@ public class ChatController {
 		this.chatRequests.put(deferredResult, messageIndex);
 
 		deferredResult.onCompletion(new Runnable() {
-			
+			@Override
 			public void run() {
 				chatRequests.remove(deferredResult);
 			}

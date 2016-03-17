@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.frozan.async.config;
+package org.springframework.samples.async.config;
 
 import javax.servlet.ServletRegistration.Dynamic;
 

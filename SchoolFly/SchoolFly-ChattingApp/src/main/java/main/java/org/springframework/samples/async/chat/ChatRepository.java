@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.frozan.async.chat;
+package org.springframework.samples.async.chat;
 
 import java.util.List;
 

@@ -1,4 +1,4 @@
-package com.frozan.async.config;
+package org.springframework.samples.async.config;
 
 import java.util.List;
 
