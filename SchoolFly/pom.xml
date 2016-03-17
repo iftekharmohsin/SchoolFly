@@ -10,7 +10,7 @@
     <modules>
     <module>SchoolFly-App</module>
     <module>SchoolFly-ChattingApp</module>
-    </modules>
+  </modules>
   <dependencies>
  
     <dependency>
