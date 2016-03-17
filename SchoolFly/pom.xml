@@ -7,12 +7,7 @@
   <version>1.0-SNAPSHOT</version>
   <name>SchoolFly</name>
   <url>http://maven.apache.org</url>
-    <modules>
-    <module>SchoolFly-App</module>
-    <module>SchoolFly-ChattingApp</module>
-  </modules>
-  <dependencies>
- 
+     <dependencies>
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
@@ -20,5 +15,8 @@
       <scope>test</scope>
     </dependency>
   </dependencies>
-
+  <modules>
+    <module>SchoolFly-App</module>
+    <module>SchoolFly-ChattingApp</module>
+  </modules>
 </project>
