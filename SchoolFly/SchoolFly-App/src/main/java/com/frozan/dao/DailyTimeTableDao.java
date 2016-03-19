@@ -24,7 +24,7 @@ public class DailyTimeTableDao {
 	public List<DailyTimeTable> getTimeTable(String classId,String dayId){
 		final String DAYTIEMTABLE="from DailyTimeTableHlo where classId=? AND DAY=?";   
 		List<DailyTimeTable> dailyTimeTablesList=null;
-		List<DailyTimeTable> o=hibernateTemplate.find(DAYTIEMTABLE, new Object[]{classId,dayId},DailyTimeTable.class));
+	//	List<DailyTimeTable> o=hibernateTemplate.find(DAYTIEMTABLE, new Object[]{classId,dayId},DailyTimeTable.class));
 		
 		//hibernateTemplate.find(DAYTIEMTABLE,new Object[]{classId,dayId});
 		return dailyTimeTablesList;
