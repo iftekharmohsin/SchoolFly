@@ -5,11 +5,11 @@ import java.util.List;
 import org.springframework.orm.hibernate3.HibernateTemplate;
 
 import com.frozan.entity.ExamTimeTable;
-import com.frozan.hlo.ExamTimeTableHlo;
+//import com.frozan.hlo.ExamTimeTableHlo;
 
 
 public class ExamTimeTableDao {
-
+/*
 	private HibernateTemplate hibernateTemplate;
 
 	public ExamTimeTableDao(HibernateTemplate hibernateTemplate) {
@@ -26,5 +26,5 @@ public class ExamTimeTableDao {
 	//	examTimeTablesList=hibernateTemplate.find("from ExamTimeTableHlo where classId=?",new Object[]{classId});
 		
 		return examTimeTablesList;
-	}
+	}*/
 }
