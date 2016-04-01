@@ -1,45 +1,39 @@
-package com.frozan.service;
+import java.util.ArrayList;
+import java.util.List;
 
-///import com.frozan.hlo.ExamTimeTableHlo;
-// author by iftkar
-//import org.apache.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.frozan.dao.ExamTimeTableDao;
+import com.frozan.hlo.ExamTimeTableHlo;
+
+@Service("examTimeTableSvc")
 public class ExamTimeTableSvc {
-	//public static Logger logger=Logger.getLogger(ExamTimeTable.class);
-/*
-	private ExamTimeTableDao examTimeTableDao;
 
-	public ExamTimeTableSvc(ExamTimeTableDao examTimeTableDao) {
-      // logger.info("inside the dao method");
-		this.examTimeTableDao = examTimeTableDao;
+	@Autowired
+	ExamTimeTableDao examTimeTableDao;
+
+	public void save(ExamTimeTableHlo timeTableHlo) {
+
+		examTimeTableDao.save(timeTableHlo);
 	}
 
-	public void insert(ExamTimeTable examTimeTable) {
-		//logger.info("inside the dao method");
-
-        ExamTimeTableHlo examTimeTableHlo= new ExamTimeTableHlo();
-		examTimeTableHlo.setExamtimeTableId(examTimeTable.getExamTimeTableId());
-		examTimeTableHlo.setClassId(examTimeTable.getClassId());
-
-		examTimeTableHlo.setExamDay(examTimeTable.getExamDay());
-
-		examTimeTableHlo.setEndTime(examTimeTable.getEndTime());
-
-		examTimeTableHlo.setStartTime(examTimeTable.getStartTime());
-
-		examTimeTableHlo.setSubject(examTimeTable.getSubject());
-
-		examTimeTableDao.insert(examTimeTableHlo);
+	public void modify(ExamTimeTableHlo timeTableHlo) {
+		examTimeTableDao.modify(timeTableHlo);
 	}
 
-	public List<ExamTimeTable> getExamTimeTable(String classId) {
-		List<ExamTimeTable> examTimeTableList = null;
-		//examTimeTableList = new ArrayList<ExamTimeTable>();
-		examTimeTableList =examTimeTableDao.getExamTimeTable(classId);
-		return examTimeTableList;
+	public void delete(ExamTimeTableHlo timeTableHlo) {
+		examTimeTableDao.delete(timeTableHlo);
+	}
+
+	public ExamTimeTableHlo getTimeTableByid(int id) {
+		return examTimeTableDao.getTimeTableByid(id);
 
 	}
-	
-	
-	*/
+
+	@SuppressWarnings("unchecked")
+	public List<ExamTimeTableHlo> getTimeTable() {
+		return examTimeTableDao.getTimeTable();
+	}
 
 }

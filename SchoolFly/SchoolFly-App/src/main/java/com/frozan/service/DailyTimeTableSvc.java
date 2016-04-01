@@ -1,47 +1,40 @@
 package com.frozan.service;
 
-
 import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.frozan.dao.DailyTimeTableDao;
 import com.frozan.entity.DailyTimeTable;
 import com.frozan.hlo.DailyTimeTableHlo;
 
+@Service("dailyTimeTableSvc")
 public class DailyTimeTableSvc {
+	@Autowired
+	DailyTimeTableDao dailyTimeTableDao;
 
-	private DailyTimeTableDao dailyTimeTableDao;
-	DailyTimeTableHlo dailyTimeTableHlo=new DailyTimeTableHlo();
-	public DailyTimeTableSvc(){
-		//no-op;
+	public void save(DailyTimeTableHlo dailyTimeTableHlo) {
+		dailyTimeTableDao.save(dailyTimeTableHlo);
+
 	}
 
-	public DailyTimeTableSvc(DailyTimeTableDao dailyTimeTableDao) {
-		this.dailyTimeTableDao = dailyTimeTableDao;
+	public void modify(DailyTimeTableHlo dailyTimeTableHlo) {
+		dailyTimeTableDao.modify(dailyTimeTableHlo);
 	}
-	
-	public void insert(DailyTimeTable dailyTimeTable){
-		
-		dailyTimeTableHlo.setClassId(dailyTimeTable.getClassId());
-		
-		dailyTimeTableHlo.setDayId(dailyTimeTable.getDayId());
-		
-		dailyTimeTableHlo.setEndTime(dailyTimeTable.getEndTime());
-		
-		dailyTimeTableHlo.setStartTime(dailyTimeTable.getStartTime());
-		
-		dailyTimeTableHlo.setSubject(dailyTimeTable.getSubject());
-		
-		dailyTimeTableHlo.setTeacher(dailyTimeTable.getTeacher());
-		
-		dailyTimeTableDao.insert(dailyTimeTableHlo);	
-		
+
+	public void delete(DailyTimeTableHlo dailyTimeTableHlo) {
+		dailyTimeTableDao.delete(dailyTimeTableHlo);
 	}
-	
-	public List<DailyTimeTable> getTimeTable(String classId,String dayId){
-		
-		List<DailyTimeTable> dailyTimeTableList=null;
-		
-		dailyTimeTableList=dailyTimeTableDao.getTimeTable(classId, dayId);
-		return dailyTimeTableList;
+
+	public DailyTimeTableHlo getTimeTableByid(int id) {
+		return dailyTimeTableDao.getTimeTableByid(id);
+
 	}
+
+	@SuppressWarnings("unchecked")
+	public List<DailyTimeTableHlo> getTimeTable() {
+		return dailyTimeTableDao.getTimeTable();
+	}
+
 }

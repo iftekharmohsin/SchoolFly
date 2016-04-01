@@ -1,27 +1,41 @@
 package com.frozan.dao;
 
-import org.springframework.orm.hibernate4.HibernateTemplate;
+import java.util.List;
 
-import com.frozan.entity.Student;
+import org.hibernate.Query;
+import org.springframework.stereotype.Repository;
+
 import com.frozan.hlo.StudentHlo;
 
-public class StudentDao {
-
-	private HibernateTemplate hibernateTemplate = null;
-
-	public StudentDao(HibernateTemplate hibernateTemplate) {
-		// super();
-		this.hibernateTemplate = hibernateTemplate;
+@Repository("studentDao")
+public class StudentDao extends TempletDao {
+	
+	public void save(StudentHlo studentHlo){
+		persist(studentHlo);
 	}
-
-	public void insertStudent(StudentHlo studentHlo) {
-		// TODO: IMPLEMENTATION
+	
+	public void modify(StudentHlo studentHlo){
+		update(studentHlo);
 	}
-
-	public Student fetchStudent(String studentId) {
-		// TODO: IMPPLEMENTATION
-		Student student = null;
-		return student;
-
+	
+	public void delete(StudentHlo studentHlo){
+      		delete(studentHlo);
 	}
+	public int get()
+	{
+		return 1;
+	}
+	
+    public List<StudentHlo> getAllStudent(){
+    
+    	Query query=getSession().createQuery("From StudentHlo");
+    	List<StudentHlo> students= query.list();
+    	return students;
+    }
+    
+    public StudentHlo getStudentById(int id){
+    	Query query=getSession().createQuery("From StudentHlo s where s:id=id");
+    	StudentHlo student=(StudentHlo) query.uniqueResult();
+    	return student;
+    }
 }

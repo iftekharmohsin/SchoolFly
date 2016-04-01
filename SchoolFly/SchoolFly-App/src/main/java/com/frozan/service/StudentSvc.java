@@ -1,35 +1,44 @@
 package com.frozan.service;
 
+import java.util.List;
+
+import org.hibernate.Query;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 import com.frozan.dao.StudentDao;
-import com.frozan.entity.Student;
 import com.frozan.hlo.StudentHlo;
 
-
+@Service("studentSvc")
 public class StudentSvc {
-
-	private StudentDao studentDao;
-    StudentHlo studentHlo=new StudentHlo();
-	public StudentSvc(StudentDao studentDao) {
-		super();
-		this.studentDao = studentDao;
-	}
+   
+	@Autowired
+	StudentDao studentDao;
 	
-	public void insertStudent(Student student){
-		studentHlo.setStdFirstName(student.getStdFirstName());
-		studentHlo.setStdMiddleName(student.getStdMiddleName());
-		studentHlo.setStdLastName(student.getStdLastName());
-		studentHlo.setStdGender(student.getStdGender());
-		studentHlo.setStdDateOfBirth(student.getStdDateOfBirth());
+	public void save(StudentHlo studentHlo){
+      studentDao.save(studentHlo);
 		
-		studentDao.insertStudent(studentHlo);
+	}
+	public int get()
+	{
+		return studentDao.get();
 	}
 	
-	public Student fetchStudentById(String studentId){
-	
-		Student student=null;
-		student = studentDao.fetchStudent(studentId);
-		
-		return student;
+	public void modify(StudentHlo studentHlo){
+		studentDao.modify(studentHlo);
 	}
-
+	
+	public void delete(StudentHlo studentHlo){
+		studentDao.delete(studentHlo);
+	}
+	
+    public List<StudentHlo> getAllStudent(){
+    	return studentDao.getAllStudent();
+    }
+    
+    public StudentHlo getStudentById(int id){
+    	return studentDao.getStudentById(id);
+    }
+	
+	
 }

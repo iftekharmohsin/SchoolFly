@@ -1,27 +1,44 @@
 package com.frozan.dao;
 
-import org.springframework.orm.hibernate4.HibernateTemplate;
+import java.util.List;
 
-import com.frozan.entity.Teacher;
+import org.hibernate.Query;
+import org.springframework.stereotype.Repository;
+
 import com.frozan.hlo.TeacherHlo;
+@Repository("teacherDao")
+public class TeacherDao  extends TempletDao{
+	
+	public void save(TeacherHlo teacherHlo)
 
-public class TeacherDao {
-
-	private HibernateTemplate hibernateTemplate = null;
-
-	public TeacherDao(HibernateTemplate hibernateTemplate) {
-		// super();
-		this.hibernateTemplate = hibernateTemplate;
-	}
-
-	public void insertTeacher(TeacherHlo teacherHlo) {
-		// TODO: IMPLEMENTATION
-	}
-
-	public Teacher fetchteacher(String teacherId) {
-		// TODO: IMPPLEMENTATION
-		Teacher  teacher= null;
-		return teacher;
+	{
+		persist(teacherHlo);
 
 	}
+
+	public void modify(TeacherHlo teacherHlo) {
+		update(teacherHlo);
+	}
+	public void delete(TeacherHlo teacherHlo)
+	{
+		delete(teacherHlo);
+	}
+	
+	public TeacherHlo getTeacherById(int id) {
+		Query query = null;
+		query = getSession().createQuery("from TeacherHlo t where t.id=id ");
+		TeacherHlo teacherHlo = (TeacherHlo) query.uniqueResult();
+
+		return teacherHlo;
+	}
+	
+	public List<TeacherHlo> getAllTeacher()
+	{
+		List<TeacherHlo> teacherHlos=null;
+		Query query=null;
+		query=getSession().createQuery("from TeacherHlo");
+		teacherHlos=query.list();
+		return teacherHlos;
+	}
+
 }

@@ -9,28 +9,28 @@ import org.springframework.transaction.annotation.Transactional;
 public abstract class TempletDao {
 Logger logger=Logger.getLogger(TempletDao.class);
 	
-	@Autowired
-	private SessionFactory sessionFactory;
-
-	protected Session getSession() {
-		System.out.println("****** Session "+sessionFactory.getCurrentSession());
-		logger.info("inside session"+sessionFactory.getCurrentSession());
-		return sessionFactory.getCurrentSession();
-	}
-
-	public void persist(Object entity){
-		System.out.println("*************************"+getSession());
-		logger.info("start in persist");
-		getSession().save(entity);
-	
-	}
-	
-	public void delete(Object entity){
-		getSession().delete(entity);
-	}
-
-	public void update(Object entity){
-		getSession().saveOrUpdate(entity);
-	}
+					@Autowired
+					private SessionFactory sessionFactory;
+				
+					protected Session getSession() {
+						System.out.println("****** Session "+sessionFactory.getCurrentSession());
+						logger.info("inside session"+sessionFactory.getCurrentSession());
+						return sessionFactory.getCurrentSession();
+					}
+				
+					public void persist(Object entity){
+						System.out.println("*************************"+getSession());
+						logger.info("start in persist");
+						getSession().save(entity);
+					
+					}
+					
+					public void delete(Object entity){
+						getSession().delete(entity);
+					}
+				
+					public void update(Object entity){
+						getSession().saveOrUpdate(entity);
+					}
 
 }

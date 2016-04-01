@@ -1,32 +1,46 @@
 package com.frozan.dao;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.orm.hibernate3.HibernateTemplate;
+import org.springframework.stereotype.Repository;
 
 import com.frozan.entity.DailyTimeTable;
 import com.frozan.hlo.DailyTimeTableHlo;
+import com.frozan.hlo.ExamTimeTableHlo;
 
+@Repository("dailyTimeTableDao")
+public class DailyTimeTableDao extends TempletDao {
 
-public class DailyTimeTableDao {
+	public void save(DailyTimeTableHlo dailyTimeTableHlo) {
+		persist(dailyTimeTableHlo);
 
-	private HibernateTemplate hibernateTemplate;
-
-	public DailyTimeTableDao(HibernateTemplate hibernateTemplate) {
-		
-		this.hibernateTemplate = hibernateTemplate;
-	}
-	
-	public void insert(DailyTimeTableHlo dailyTimeTableHlo){
-		hibernateTemplate.save(dailyTimeTableHlo);
 	}
 
-	public List<DailyTimeTable> getTimeTable(String classId,String dayId){
-		final String DAYTIEMTABLE="from DailyTimeTableHlo where classId=? AND DAY=?";   
-		List<DailyTimeTable> dailyTimeTablesList=null;
-	//	List<DailyTimeTable> o=hibernateTemplate.find(DAYTIEMTABLE, new Object[]{classId,dayId},DailyTimeTable.class));
-		
-		//hibernateTemplate.find(DAYTIEMTABLE,new Object[]{classId,dayId});
-		return dailyTimeTablesList;
+	public void modify(DailyTimeTableHlo dailyTimeTableHlo) {
+		update(dailyTimeTableHlo);
+	}
+
+	public void delete(DailyTimeTableHlo dailyTimeTableHlo) {
+		delete(dailyTimeTableHlo);
+	}
+
+	public DailyTimeTableHlo getTimeTableByid(int id) {
+		DailyTimeTableHlo dailyTimeTableHlo = null;
+		dailyTimeTableHlo = new DailyTimeTableHlo();
+		dailyTimeTableHlo = (DailyTimeTableHlo) getSession().createQuery(
+				"from DailyTimeTableHlo d where d.id=id").uniqueResult();
+		return dailyTimeTableHlo;
+
+	}
+
+	@SuppressWarnings("unchecked")
+	public List<DailyTimeTableHlo> getTimeTable() {
+		List<DailyTimeTableHlo> dailyTimeTableHlo = null;
+		dailyTimeTableHlo = new ArrayList<DailyTimeTableHlo>();
+		dailyTimeTableHlo = getSession().createQuery("from DailyTimeTableHlo ")
+				.list();
+		return dailyTimeTableHlo;
 	}
 }
