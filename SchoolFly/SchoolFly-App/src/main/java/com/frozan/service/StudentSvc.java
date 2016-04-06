@@ -5,11 +5,13 @@ import java.util.List;
 import org.hibernate.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.frozan.dao.StudentDao;
 import com.frozan.hlo.StudentHlo;
 
 @Service("studentSvc")
+@Transactional
 public class StudentSvc {
    
 	@Autowired
@@ -21,7 +23,7 @@ public class StudentSvc {
 	}
 	public int get()
 	{
-		return studentDao.get();
+		return 1;
 	}
 	
 	public void modify(StudentHlo studentHlo){
