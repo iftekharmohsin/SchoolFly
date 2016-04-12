@@ -12,6 +12,7 @@ public class BusHlo {
 	@Id
 	@Column(name="ID")
 	private int id;
+	
 	@Column(name="BUS_NO")
 	private String busNo;
 	//TODO:mapping

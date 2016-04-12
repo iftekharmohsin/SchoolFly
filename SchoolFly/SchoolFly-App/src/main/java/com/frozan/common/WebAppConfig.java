@@ -17,7 +17,7 @@ import org.springframework.web.servlet.view.JstlView;
 @ComponentScan(basePackages = "com.frozan")
 public class WebAppConfig extends WebMvcConfigurerAdapter {
 
-		@Bean(name = "viewResolver")
+	@Bean(name = "viewResolver")
 		public ViewResolver viewResolver() {
 			InternalResourceViewResolver viewResolver = new InternalResourceViewResolver();
 			viewResolver.setViewClass(JstlView.class);

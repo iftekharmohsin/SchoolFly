@@ -1,6 +1,7 @@
 package com.frozan.hlo;
 
 import java.util.Date;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -11,6 +12,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+
+
 
 @Entity
 @Table(name="STUDENT_TB")
@@ -30,6 +33,13 @@ public class StudentHlo {
 	@Column(name="STD_MIDDLE_NAME")
 	private String stdMiddleName;
 	
+	public ClassHlo getStdClass() {
+		return stdClass;
+	}
+	public void setStdClass(ClassHlo stdClass) {
+		this.stdClass = stdClass;
+	}
+
 	@Column(name="STD_GENDER")
 	private String stdGender;
 	
@@ -40,10 +50,20 @@ public class StudentHlo {
 	@JoinColumn(name="CLASS_ID")
 	private ClassHlo stdClass;
 	
+	@OneToOne
+	@JoinColumn(name="SCHOOL_ID")
+	private SchoolHlo school;
+	
     //@OneToMany(cascade=CascadeType.ALL,fetch=FetchType.LAZY)
 	//@Column(name="TEACHER_ID")
     //private List<TeacherHlo> teachers;
 	
+	public SchoolHlo getSchool() {
+		return school;
+	}
+	public void setSchool(SchoolHlo school) {
+		this.school = school;
+	}
 	public int getId() {
 		return id;
 	}
