@@ -11,162 +11,166 @@ import org.springframework.stereotype.Repository;
 
 import com.frozan.exception.ExceptionMessage;
 import com.frozan.exception.FrozanGenericException;
+import com.frozan.hlo.BusHlo;
 import com.frozan.hlo.StudentHlo;
 
-@Repository("studentDao")
-public class StudentDao extends TempletDao {
-
-	public void save(StudentHlo studentHlo) {
+@Repository("busDao")
+public class BusDao extends TempletDao {
+	public void save(BusHlo busHlo) {
 		try {
-			logger.debug("student is about to be saved : "
-					+ studentHlo.getStdFirstName());
-			persist(studentHlo);
+			logger.debug("bus is about to be saved : "
+					+busHlo.getBusNo() );
+			persist(busHlo);
 			logger.debug("student saved succussfully");
 		} catch (JDBCConnectionException e) {
 			logger.error("JDBCConnectionException occured while saving student : "
-					+ studentHlo.getStdFirstName() + " : " + e);
+					+ busHlo.getBusNo() + " : " + e);
 			throw new FrozanGenericException(
 					ExceptionMessage.CONSTVAIlATION_MSG.getMessage());
 		} catch (ConstraintViolationException e) {
 			logger.error("ConstraintViolationException occured while saving student : "
-					+ studentHlo.getStdFirstName() + " : " + e);
+					+busHlo.getBusNo()+ " : " + e);
 			throw new FrozanGenericException(
 					ExceptionMessage.CONSTVAIlATION_MSG.getMessage());
 		} catch (HibernateException e) {
 			logger.error("HibernateException occured while saving student : "
-					+ studentHlo.getStdFirstName() + " : " + e);
+					+ busHlo.getBusNo()+ " : " + e);
 			throw new FrozanGenericException(
 					ExceptionMessage.CONSTVAIlATION_MSG.getMessage());
 		} catch (Exception e) {
 			logger.error("Exception occured while saving student : "
-					+ studentHlo.getStdFirstName() + " : " + e);
+					+ busHlo.getBusNo()+ " : " + e);
+			throw new FrozanGenericException(e.getMessage());
+		}
+		
+
+	}
+
+	public void modify(BusHlo busHlo) {
+		try {
+			logger.debug("bus is about to be saved : "
+					+busHlo.getBusNo() );
+			update(busHlo);
+			logger.debug("student saved succussfully");
+		} catch (JDBCConnectionException e) {
+			logger.error("JDBCConnectionException occured while saving student : "
+					+ busHlo.getBusNo() + " : " + e);
+			throw new FrozanGenericException(
+					ExceptionMessage.CONSTVAIlATION_MSG.getMessage());
+		} catch (ConstraintViolationException e) {
+			logger.error("ConstraintViolationException occured while saving student : "
+					+busHlo.getBusNo()+ " : " + e);
+			throw new FrozanGenericException(
+					ExceptionMessage.CONSTVAIlATION_MSG.getMessage());
+		} catch (HibernateException e) {
+			logger.error("HibernateException occured while saving student : "
+					+ busHlo.getBusNo()+ " : " + e);
+			throw new FrozanGenericException(
+					ExceptionMessage.CONSTVAIlATION_MSG.getMessage());
+		} catch (Exception e) {
+			logger.error("Exception occured while saving student : "
+					+ busHlo.getBusNo()+ " : " + e);
 			throw new FrozanGenericException(e.getMessage());
 		}
 
 	}
 
-	public void modify(StudentHlo studentHlo) {
+	public void delete(BusHlo busHlo) {
 		try {
-			logger.debug("student is about to be update : "
-					+ studentHlo.getStdFirstName());
-			update(studentHlo);
-			logger.debug("student updated succussfully");
+			logger.debug("bus is about to be saved : "
+					+busHlo.getBusNo() );
+			delete(busHlo);
+			logger.debug("student saved succussfully");
 		} catch (JDBCConnectionException e) {
-			logger.error("JDBCConnectionException occured while update student : "
-					+ studentHlo.getStdFirstName() + " : " + e);
+			logger.error("JDBCConnectionException occured while saving student : "
+					+ busHlo.getBusNo() + " : " + e);
 			throw new FrozanGenericException(
 					ExceptionMessage.CONSTVAIlATION_MSG.getMessage());
 		} catch (ConstraintViolationException e) {
 			logger.error("ConstraintViolationException occured while saving student : "
-					+ studentHlo.getStdFirstName() + " : " + e);
+					+busHlo.getBusNo()+ " : " + e);
 			throw new FrozanGenericException(
 					ExceptionMessage.CONSTVAIlATION_MSG.getMessage());
 		} catch (HibernateException e) {
 			logger.error("HibernateException occured while saving student : "
-					+ studentHlo.getStdFirstName() + " : " + e);
+					+ busHlo.getBusNo()+ " : " + e);
 			throw new FrozanGenericException(
 					ExceptionMessage.CONSTVAIlATION_MSG.getMessage());
 		} catch (Exception e) {
 			logger.error("Exception occured while saving student : "
-					+ studentHlo.getStdFirstName() + " : " + e);
+					+ busHlo.getBusNo()+ " : " + e);
 			throw new FrozanGenericException(e.getMessage());
 		}
-
+		
+		
 	}
 
-	public void delete(StudentHlo studentHlo) {
+	public BusHlo findBusByid(int id) {
+		BusHlo busHlo = null;
 		try {
-			logger.debug("student is about to be deleted : "
-					+ studentHlo.getStdFirstName());
-			delete(studentHlo);
-			logger.debug("student deleted succussfully");
+			logger.debug("student is about to be selected: ");
+			busHlo = new BusHlo();
+			busHlo = (BusHlo) getSession().createQuery(
+					"from BusHlo b where b.id=id").uniqueResult();
+			
+			
+			logger.debug("student selected succussfully");
 		} catch (JDBCConnectionException e) {
-			logger.error("JDBCConnectionException occured while deleted student : "
-					+ studentHlo.getStdFirstName() + " : " + e);
+			logger.error("JDBCConnectionException occured while selecting student : "
+					+ e);
 			throw new FrozanGenericException(
 					ExceptionMessage.CONSTVAIlATION_MSG.getMessage());
 		} catch (ConstraintViolationException e) {
-			logger.error("ConstraintViolationException occured while saving student : "
-					+ studentHlo.getStdFirstName() + " : " + e);
+			logger.error("ConstraintViolationException occured while selecting student :  "
+					+ e);
 			throw new FrozanGenericException(
 					ExceptionMessage.CONSTVAIlATION_MSG.getMessage());
 		} catch (HibernateException e) {
-			logger.error("HibernateException occured while deleting student : "
-					+ studentHlo.getStdFirstName() + " : " + e);
+			logger.error("HibernateException occured while selecting student : "
+					+ " " + e);
 			throw new FrozanGenericException(
 					ExceptionMessage.CONSTVAIlATION_MSG.getMessage());
 		} catch (Exception e) {
-			logger.error("Exception occured while deleting student : "
-					+ studentHlo.getStdFirstName() + " : " + e);
+			logger.error("Exception occured while selecting student : " + e);
 			throw new FrozanGenericException(e.getMessage());
 		}
+		return busHlo;
+		
 
 	}
 
 	@SuppressWarnings("unchecked")
-	public List<StudentHlo> getAllStudent() {
-		List<StudentHlo> students = null;
+	public List<BusHlo> findAllBuses() {
+		List<BusHlo> busHlo = null;
 		try {
-			logger.debug("student is about to be selected: ");
-			Query query = getSession().createQuery("From StudentHlo");
-			students = new ArrayList<StudentHlo>();
-			students = query.list();
-			logger.debug("student selected succussfully");
+			logger.debug("bus is about to be selected: ");
+			busHlo=new ArrayList<BusHlo>();
+			busHlo = getSession().createQuery("from BusHlo ")
+					.list();
+			
+			logger.debug("bus selected succussfully");
 		} catch (JDBCConnectionException e) {
-			logger.error("JDBCConnectionException occured while selecting student : "
+			logger.error("JDBCConnectionException occured while selecting bus : "
 					+ e);
 			throw new FrozanGenericException(
 					ExceptionMessage.CONSTVAIlATION_MSG.getMessage());
 		} catch (ConstraintViolationException e) {
-			logger.error("ConstraintViolationException occured while selecting student :  "
+			logger.error("ConstraintViolationException occured while selecting bus :  "
 					+ e);
 			throw new FrozanGenericException(
 					ExceptionMessage.CONSTVAIlATION_MSG.getMessage());
 		} catch (HibernateException e) {
-			logger.error("HibernateException occured while selecting student : "
+			logger.error("HibernateException occured while selecting bus : "
 					+ " " + e);
 			throw new FrozanGenericException(
 					ExceptionMessage.CONSTVAIlATION_MSG.getMessage());
 		} catch (Exception e) {
-			logger.error("Exception occured while selecting student : " + e);
+			logger.error("Exception occured while selecting bus : " + e);
 			throw new FrozanGenericException(e.getMessage());
 		}
-		return students;
-	}
-
-	public StudentHlo getStudentById(int id) {
-		StudentHlo student = null;
-		try {
-			logger.debug("student is about to be selected: ");
-			Query query = getSession().createQuery(
-					"From StudentHlo s where s.id=id");
-			student = new StudentHlo();
-			student = (StudentHlo) query.uniqueResult();
-			logger.debug("student selected succussfully");
-		} catch (JDBCConnectionException e) {
-			logger.error("JDBCConnectionException occured while selecting student : "
-					+ e);
-			throw new FrozanGenericException(
-					ExceptionMessage.CONSTVAIlATION_MSG.getMessage());
-		} catch (ConstraintViolationException e) {
-			logger.error("ConstraintViolationException occured while selecting student :  "
-					+ e);
-			throw new FrozanGenericException(
-					ExceptionMessage.CONSTVAIlATION_MSG.getMessage());
-		} catch (HibernateException e) {
-			logger.error("HibernateException occured while selecting student : "
-					+ " " + e);
-			throw new FrozanGenericException(
-					ExceptionMessage.CONSTVAIlATION_MSG.getMessage());
-		} catch (Exception e) {
-			logger.error("Exception occured while selecting student : " + e);
-			throw new FrozanGenericException(e.getMessage());
-		}
-		/*
-		 * Query
-		 * query=getSession().createQuery("From StudentHlo s where s:id=id");
-		 * StudentHlo student=(StudentHlo) query.uniqueResult();
-		 */
-		return student;
+		return busHlo;
+		
+		
+		
 	}
 }

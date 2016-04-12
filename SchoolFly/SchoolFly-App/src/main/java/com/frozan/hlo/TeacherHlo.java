@@ -33,6 +33,8 @@ public class TeacherHlo {
 	@Column(name="THR_DOB")
 	private Date dob;
 
+	
+	
 	public int getId() {
 		return id;
 	}

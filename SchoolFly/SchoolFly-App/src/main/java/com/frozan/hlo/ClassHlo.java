@@ -26,7 +26,32 @@ public class ClassHlo {
 	@OneToOne(cascade=CascadeType.ALL,fetch=FetchType.LAZY)
 	@JoinColumn(name="STD_ID")
 	private StudentHlo std;
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getClassName() {
+		return className;
+	}
+
+	public void setClassName(String className) {
+		this.className = className;
+	}
+
+	public StudentHlo getStd() {
+		return std;
+	}
+
+	public void setStd(StudentHlo std) {
+		this.std = std;
+	}
 	
 	
-	//private DailyTimeTableHlo dailyTimeTableHlo;
+
+
 }
