@@ -1,8 +1,14 @@
 package com.frozan.hlo;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -10,16 +16,20 @@ import javax.persistence.Table;
 public class BusHlo {
 
 	@Id
-	@Column(name="ID")
+	@Column(name="BUS_ID")
 	private int id;
 	
 	@Column(name="BUS_NO")
 	private String busNo;
-	//TODO:mapping
+	
+	@OneToMany(fetch = FetchType.LAZY)
+	@JoinColumn(name="BUS_ID" , insertable = false, updatable = false)
+	private List<TransportStaffHlo> transportStaffHlo;
 
-	private int routeId;
-	//TODO:mapping
-	private int  transportStaffId;
+	@OneToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name="BUS_ID")
+	private RouteHlo routeHlo;
+
 	public int getId() {
 		return id;
 	}
@@ -32,17 +42,18 @@ public class BusHlo {
 	public void setBusNo(String busNo) {
 		this.busNo = busNo;
 	}
-	public int getRouteId() {
-		return routeId;
+	public List<TransportStaffHlo> getTransportStaffHlo() {
+		return transportStaffHlo;
 	}
-	public void setRouteId(int routeId) {
-		this.routeId = routeId;
+	public void setTransportStaffHlo(List<TransportStaffHlo> transportStaffHlo) {
+		this.transportStaffHlo = transportStaffHlo;
 	}
-	public int getTransportStaffId() {
-		return transportStaffId;
+	public RouteHlo getHlo() {
+		return routeHlo;
 	}
-	public void setTransportStaffId(int transportStaffId) {
-		this.transportStaffId = transportStaffId;
+	public void setHlo(RouteHlo hlo) {
+		this.routeHlo = hlo;
 	}
+
 
 }

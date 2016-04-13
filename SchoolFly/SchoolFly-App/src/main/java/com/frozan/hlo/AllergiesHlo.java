@@ -11,13 +11,15 @@ public class AllergiesHlo {
 
     @Id
 	private int id;
-	@Column(name="NAME")
-	private String name;
-    @Column(name="DETAILS")
-	private String details;
-	@Column(name="PRECAUTIONS")
-	private String precautions;
 	
+    @Column(name="NAME")
+	private String name;
+    
+	@Column(name="DETAILS")
+	private String details;
+	
+    @Column(name="PRECAUTIONS")
+	private String precautions;
 	
 	public int getId() {
 		return id;

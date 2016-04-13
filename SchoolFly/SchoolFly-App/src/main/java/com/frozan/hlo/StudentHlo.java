@@ -1,6 +1,7 @@
 package com.frozan.hlo;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -10,8 +11,13 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
 
@@ -33,6 +39,99 @@ public class StudentHlo {
 	@Column(name="STD_MIDDLE_NAME")
 	private String stdMiddleName;
 	
+	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@JsonIgnore
+	@JoinColumn(name="STUDENT_ID" , insertable = false, updatable = false)
+	private List<AllergiesHlo> allergiesHlo;
+	
+	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@JsonIgnore
+	@JoinColumn(name="STUDENT_ID" , insertable = false, updatable = false)
+	private List<BusHlo> busHlos;
+	
+	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@JsonIgnore
+	@JoinColumn(name="CLASS_ID" , insertable = false, updatable = false)
+	private ClassHlo classHlo;
+	
+	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@JsonIgnore
+	@JoinColumn(name="DAILY_TIME_TABLE_ID", insertable = false, updatable = false)
+	private DailyTimeTableHlo dailyTimeTableHlo;
+
+	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@JsonIgnore
+	@JoinColumn(name="DESTINATION_ID", insertable = false, updatable = false)
+	private DestinationHlo destinationHlo;
+	
+	@ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@JsonIgnore
+	@JoinColumn(name="STUDENT_ID" , insertable = false, updatable = false )
+	private List<EventHlo> eventHlos;
+	
+	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@JsonIgnore
+	@JoinColumn(name="STUDENT_ID" , insertable = false, updatable = false)
+	private List<ParentHlo> parentHlos;
+	
+	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@JsonIgnore
+	@JoinColumn(name="STUDENT_ID" , insertable = false, updatable = false)
+	private  List<ExamHlo> examHlos;
+	
+	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@JsonIgnore
+	@JoinColumn(name="STUDENT_ID" , insertable = false, updatable = false)
+	private List<ExamTimeTableHlo> examTimeTableHlos;
+	
+	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@JsonIgnore
+	@JoinColumn(name="SCHOOL_ID", insertable = false, updatable = false)
+	private SchoolHlo schoolHlo;
+	
+	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@JsonIgnore
+	@JoinColumn(name="STUDENT_ID" , insertable = false, updatable = false)
+	private List<TeacherHlo> teacherHlos;
+	
+	
+	
+	public DailyTimeTableHlo getDailyTimeTableHlo() {
+		return dailyTimeTableHlo;
+	}
+	public void setDailyTimeTableHlo(DailyTimeTableHlo dailyTimeTableHlo) {
+		this.dailyTimeTableHlo = dailyTimeTableHlo;
+	}
+	public DestinationHlo getDestinationHlo() {
+		return destinationHlo;
+	}
+	public void setDestinationHlo(DestinationHlo destinationHlo) {
+		this.destinationHlo = destinationHlo;
+	}
+	public List<EventHlo> getEventHlos() {
+		return eventHlos;
+	}
+	public void setEventHlos(List<EventHlo> eventHlos) {
+		this.eventHlos = eventHlos;
+	}
+	public List<AllergiesHlo> getAllergiesHlo() {
+		return allergiesHlo;
+	}
+	public void setAllergiesHlo(List<AllergiesHlo> allergiesHlo) {
+		this.allergiesHlo = allergiesHlo;
+	}
+	public List<BusHlo> getBusHlos() {
+		return busHlos;
+	}
+	public void setBusHlos(List<BusHlo> busHlos) {
+		this.busHlos = busHlos;
+	}
+	public ClassHlo getClassHlo() {
+		return classHlo;
+	}
+	public void setClassHlo(ClassHlo classHlo) {
+		this.classHlo = classHlo;
+	}
 	public ClassHlo getStdClass() {
 		return stdClass;
 	}
