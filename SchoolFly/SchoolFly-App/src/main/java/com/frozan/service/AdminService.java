@@ -1,14 +1,20 @@
 package com.frozan.service;
 
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import com.frozan.dao.AdminDao;
+import com.frozan.hlo.AdminHlo;
 
 @Service("adminService")
 @Transactional
 public class AdminService {
 	
-/*	@Autowired
-	private AdminDao adminDao;
+	@Autowired
+	AdminDao adminDao;
 
 	public void save(AdminHlo adminHlo) {
 		adminDao.save(adminHlo);
@@ -22,13 +28,13 @@ public class AdminService {
 		adminDao.delete(adminHlo);
 	}
 
-	public AdminHlo getTimeTableByid(int id) {
-		return adminDao.getTimeTableByid(id);
+	public AdminHlo getAdminByid(int id) {
+		return adminDao.getAdminById(id);
 
 	}
 
 	public List<AdminHlo> getTimeTable() {
-		return adminDao.getTimeTable();
+		return adminDao.getAllAdmin();
 	}
 
-*/}
+}

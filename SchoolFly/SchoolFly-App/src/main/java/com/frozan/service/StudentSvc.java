@@ -15,7 +15,7 @@ import com.frozan.hlo.StudentHlo;
 public class StudentSvc {
    
 	@Autowired
-	StudentDao studentDao;
+	private StudentDao studentDao;
 	
 	public void save(StudentHlo studentHlo){
       studentDao.save(studentHlo);

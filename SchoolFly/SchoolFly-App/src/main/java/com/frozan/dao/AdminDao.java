@@ -26,7 +26,7 @@ public void delete(AdminHlo adminHlo)
 	delete(adminHlo);
 }
 
-public AdminHlo getTimeTableByid(int id)
+public AdminHlo getAdminById(int id)
 {
 	AdminHlo adminHlo=null;
 	adminHlo=new AdminHlo();
@@ -36,7 +36,7 @@ public AdminHlo getTimeTableByid(int id)
 }
 
 @SuppressWarnings("unchecked")
-public List<AdminHlo> getTimeTable()
+public List<AdminHlo> getAllAdmin()
 {
 	List<AdminHlo> adminHlo=null;
 	adminHlo=new ArrayList<AdminHlo>();

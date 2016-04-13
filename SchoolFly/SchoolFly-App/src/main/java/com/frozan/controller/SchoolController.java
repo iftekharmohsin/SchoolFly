@@ -11,13 +11,12 @@ import com.frozan.service.SchoolSvc;
 @RestController
 @RequestMapping("school")
 public class SchoolController {
-	
+/*	
 	@Autowired
 	private SchoolSvc schoolSvc;
 	
 	@RequestMapping(value="/saveSchool")
 	public void saveSchool(@RequestBody SchoolHlo schoolHlo){
 		
-		schoolSvc.insertSchool(school);
-	}
+	}*/
 }

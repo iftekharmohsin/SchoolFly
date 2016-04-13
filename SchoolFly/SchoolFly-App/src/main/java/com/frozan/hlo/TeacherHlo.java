@@ -19,8 +19,6 @@ import javax.persistence.Table;
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
 
-import com.frozan.entity.Subject;
-
 @Entity
 @Table(name="TEACHER_TB")
 public class TeacherHlo {
@@ -49,7 +47,7 @@ public class TeacherHlo {
 	@JoinColumn(name="SCHOOL_ID")
 	private SchoolHlo school;
 	
-    @OneToMany(cascade=CascadeType.ALL,fetch = FetchType.LAZY)
+/*    @OneToMany(cascade=CascadeType.ALL,fetch = FetchType.LAZY)
 	@Column(name = "SUB_ID")
 	@Fetch(FetchMode.JOIN)
 	private Set<SubjectHlo> subjects;
@@ -58,7 +56,7 @@ public class TeacherHlo {
 	@JoinColumn(name = "CLASS_ID")
 	@Fetch(FetchMode.JOIN)
 	private List<ClassHlo> classes;
-
+*/
 	
 	public int getId() {
 		return id;

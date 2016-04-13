@@ -22,11 +22,11 @@ import com.frozan.service.StudentSvc;
 public class AdminController   {
 	private static final Logger logger = Logger.getLogger(AdminController.class);
 	
-	@Autowired
-	AdminService adminService;
+	//@Autowired
+	//AdminService adminService;
 	
 	@Autowired
-	StudentSvc studentSvc;
+	private StudentSvc studentSvc;
 	
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
 	public String loginPage(HttpServletRequest request) {
