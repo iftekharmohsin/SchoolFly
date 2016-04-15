@@ -33,7 +33,7 @@ public class ClassHlo {
 //	@Fetch(FetchMode.JOIN)
 	@JoinColumn(name="SECTION_ID")
 	private List<SectionHlo> sectionHlos;
-	
+
 	@OneToMany
 	@Fetch(FetchMode.JOIN)
 	@JoinColumn(name="THR_ID")

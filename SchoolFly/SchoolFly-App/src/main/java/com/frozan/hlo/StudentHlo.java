@@ -16,7 +16,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
-
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
@@ -36,7 +37,8 @@ public class StudentHlo {
 	
 	@Column(name="STD_MIDDLE_NAME")
 	private String stdMiddleName;
-
+	
+	
 	@Column(name="STD_GENDER")
 	private String stdGender;
 	
@@ -79,7 +81,7 @@ public class StudentHlo {
 	//@Fetch(FetchMode.JOIN)
 	@JoinColumn(name="STUDENT_ID" , insertable = false, updatable = false )
 	private List<EventHlo> eventHlos;
-	
+
 	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	@JsonIgnore
 	@JoinColumn(name="PARENT_ID" , insertable = false, updatable = false)
@@ -91,7 +93,9 @@ public class StudentHlo {
 	private  List<ExamHlo> examHlos;
 	
     //@JsonIgnore
-	@OneToMany
+	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	//@Fetch(FetchMode.JOIN)
+	@JsonIgnore
 	@JoinColumn(name="Exam_Time_Table_ID" , insertable = false, updatable = false)
 	private List<ExamTimeTableHlo> examTimeTableHlos;
 	
@@ -100,8 +104,8 @@ public class StudentHlo {
 	@JoinColumn(name="SCHOOL_ID", insertable = false, updatable = false)
 	private SchoolHlo schoolHlo;
 	
-//	@JsonIgnore
-	@OneToMany
+	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@JsonIgnore
 	@JoinColumn(name="THR_ID" , insertable = false, updatable = false)
 	private List<TeacherHlo> teacherHlos;
 
@@ -257,5 +261,4 @@ public class StudentHlo {
 		this.teacherHlos = teacherHlos;
 	}
 
-	
 }

@@ -107,7 +107,4 @@ public class SectionHlo {
 	public void setExamHlos(List<ExamHlo> examHlos) {
 		this.examHlos = examHlos;
 	}
-
-	
-
 }

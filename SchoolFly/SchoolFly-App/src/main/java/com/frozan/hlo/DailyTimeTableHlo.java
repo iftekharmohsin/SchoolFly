@@ -73,7 +73,5 @@ public class DailyTimeTableHlo {
 	public void setSectionHlo(SectionHlo sectionHlo) {
 		this.sectionHlo = sectionHlo;
 	}
-	
-
 
 }

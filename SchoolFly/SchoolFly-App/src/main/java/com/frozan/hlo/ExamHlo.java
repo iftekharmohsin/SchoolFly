@@ -29,14 +29,6 @@ public class ExamHlo {
 	private Date examDate;
 
 	
-	public Date getExamDate() {
-		return examDate;
-	}
-
-	public void setExamDate(Date examDate) {
-		this.examDate = examDate;
-	}
-
 	public int getId() {
 		return id;
 	}
@@ -52,5 +44,12 @@ public class ExamHlo {
 	public void setExamTimeTableHlo(ExamTimeTableHlo examTimeTableHlo) {
 		this.examTimeTableHlo = examTimeTableHlo;
 	}
-	
+
+	public Date getExamDate() {
+		return examDate;
+	}
+
+	public void setExamDate(Date examDate) {
+		this.examDate = examDate;
+	}
 }

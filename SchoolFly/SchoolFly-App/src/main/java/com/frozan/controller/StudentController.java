@@ -27,15 +27,15 @@ public class StudentController {
 	//*******Student**************
 	@RequestMapping(value="/saveStudent",method=RequestMethod.POST)
 	public void saveStudent( @RequestBody StudentHlo studentHlo){		
-
 		studentSvc.save(studentHlo);
 	}
 	
-	@RequestMapping(value="/studentById" ,method=RequestMethod.GET)
+	/*@RequestMapping(value="/studentById" ,method=RequestMethod.GET)
 	@ResponseBody
-	public StudentHlo getStudentById(@PathVariable int id){
+	public Stu 
+	dentHlo getStudentById(@PathVariable int id){
 		return studentSvc.getStudentById(id);
-	}
+	}*/
 	@RequestMapping(value="/getAllstudents" ,method=RequestMethod.GET)
 	@ResponseBody
 	public List<StudentHlo> getAllStudent(){		

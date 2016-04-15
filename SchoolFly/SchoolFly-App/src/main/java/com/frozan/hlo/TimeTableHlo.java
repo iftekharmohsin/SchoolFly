@@ -57,6 +57,5 @@ public class TimeTableHlo {
 		this.day = day;
 	}
 	
-
 }
 

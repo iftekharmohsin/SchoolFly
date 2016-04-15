@@ -68,6 +68,4 @@ public class SchoolHlo {
 		this.eventHlos = eventHlos;
 	}
 
-	
-
 }

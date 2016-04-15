@@ -27,35 +27,27 @@ public class EventHlo {
 	
 	@Column(name="ADDRESS")
     private String address;
-
 	public int getId() {
 		return id;
 	}
-
 	public void setId(int id) {
 		this.id = id;
 	}
-
 	public Date getEvntDate() {
 		return evntDate;
 	}
-
 	public void setEvntDate(Date evntDate) {
 		this.evntDate = evntDate;
 	}
-
 	public String getEvnttime() {
 		return evnttime;
 	}
-
 	public void setEvnttime(String evnttime) {
 		this.evnttime = evnttime;
 	}
-
 	public String getAddress() {
 		return address;
 	}
-
 	public void setAddress(String address) {
 		this.address = address;
 	}
