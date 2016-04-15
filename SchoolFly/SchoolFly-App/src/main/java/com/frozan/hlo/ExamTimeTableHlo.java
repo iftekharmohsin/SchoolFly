@@ -89,4 +89,5 @@ public class ExamTimeTableHlo {
 	public void setExamEndTime(Date examEndTime) {
 		this.examEndTime = examEndTime;
 	}
+	
 }

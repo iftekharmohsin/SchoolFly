@@ -30,17 +30,15 @@ public class ClassHlo {
 	private String className;
 	
 	@OneToMany(cascade=CascadeType.ALL,fetch=FetchType.LAZY)
-<<<<<<< Updated upstream
 //	@Fetch(FetchMode.JOIN)
 	@JoinColumn(name="SECTION_ID")
 	private List<SectionHlo> sectionHlos;
 	
-=======
+	@OneToMany
 	@Fetch(FetchMode.JOIN)
-	@JoinColumn(name="TEACHER_THR_ID")
+	@JoinColumn(name="THR_ID")
 	private List<TeacherHlo> teachers;
 
->>>>>>> Stashed changes
 	public int getId() {
 		return id;
 	}
@@ -57,22 +55,12 @@ public class ClassHlo {
 		this.className = className;
 	}
 
-<<<<<<< Updated upstream
 	public List<SectionHlo> getSectionHlos() {
 		return sectionHlos;
 	}
 
 	public void setSectionHlos(List<SectionHlo> sectionHlos) {
 		this.sectionHlos = sectionHlos;
-	}
-
-=======
-	public SchoolHlo getSchool() {
-		return school;
-	}
-
-	public void setSchool(SchoolHlo school) {
-		this.school = school;
 	}
 
 	public List<TeacherHlo> getTeachers() {
@@ -82,8 +70,4 @@ public class ClassHlo {
 	public void setTeachers(List<TeacherHlo> teachers) {
 		this.teachers = teachers;
 	}
-
-
-	
->>>>>>> Stashed changes
 }

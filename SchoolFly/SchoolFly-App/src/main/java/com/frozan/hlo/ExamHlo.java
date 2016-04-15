@@ -1,6 +1,8 @@
 package com.frozan.hlo;
 
 
+import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -16,13 +18,24 @@ public class ExamHlo {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-<<<<<<< Updated upstream
 	@Column(name="EXAM_ID")
 	private int id;
 	
 	@OneToOne
 	@JoinColumn(name="Exam_Time_Table_Id")
 	private ExamTimeTableHlo examTimeTableHlo;
+	
+	@Column(name="EXAM_DATE")
+	private Date examDate;
+
+	
+	public Date getExamDate() {
+		return examDate;
+	}
+
+	public void setExamDate(Date examDate) {
+		this.examDate = examDate;
+	}
 
 	public int getId() {
 		return id;
@@ -39,13 +52,5 @@ public class ExamHlo {
 	public void setExamTimeTableHlo(ExamTimeTableHlo examTimeTableHlo) {
 		this.examTimeTableHlo = examTimeTableHlo;
 	}
-	
-=======
-	@Column(name = "PARENT_ID")
-	private int id;
-	
-	@Column(name="EXAM_DATE")
-	private Date examDate;
->>>>>>> Stashed changes
 	
 }

@@ -100,6 +100,14 @@ public class SectionHlo {
 		this.dailyTimeTableHlo = dailyTimeTableHlo;
 	}
 
+	public List<ExamHlo> getExamHlos() {
+		return examHlos;
+	}
+
+	public void setExamHlos(List<ExamHlo> examHlos) {
+		this.examHlos = examHlos;
+	}
+
 	
 
 }

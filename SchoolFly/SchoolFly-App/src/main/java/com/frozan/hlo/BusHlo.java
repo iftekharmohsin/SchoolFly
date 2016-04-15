@@ -33,4 +33,37 @@ public class BusHlo {
 	@JoinColumn(name="BUS_ID")
 	private RouteHlo routeHlo;
 
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getBusNo() {
+		return busNo;
+	}
+
+	public void setBusNo(String busNo) {
+		this.busNo = busNo;
+	}
+
+	public List<TransportStaffHlo> getTransportStaffHlo() {
+		return transportStaffHlo;
+	}
+
+	public void setTransportStaffHlo(List<TransportStaffHlo> transportStaffHlo) {
+		this.transportStaffHlo = transportStaffHlo;
+	}
+
+	public RouteHlo getRouteHlo() {
+		return routeHlo;
+	}
+
+	public void setRouteHlo(RouteHlo routeHlo) {
+		this.routeHlo = routeHlo;
+	}
+
+	
 }

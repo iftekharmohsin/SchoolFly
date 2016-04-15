@@ -47,14 +47,10 @@ public class TeacherHlo {
 	@JoinColumn(name="SCHOOL_ID")
 	private SchoolHlo school;
 	
-    @OneToMany(cascade=CascadeType.ALL,fetch = FetchType.LAZY)
-<<<<<<< Updated upstream
-	@Column(name = "SUB_ID", insertable = false, updatable = false)
 //	@Fetch(FetchMode.JOIN)
-=======
+	@OneToMany
 	@Column(name = "SUB_ID")
 	@Fetch(FetchMode.JOIN)
->>>>>>> Stashed changes
 	private Set<SubjectHlo> subjects;
 	
 	@OneToMany(cascade=CascadeType.ALL,fetch=FetchType.LAZY)
@@ -62,11 +58,7 @@ public class TeacherHlo {
 	@Fetch(FetchMode.JOIN)
 	private List<ClassHlo> classes;
 
-<<<<<<< Updated upstream
-	
-=======
->>>>>>> Stashed changes
-	public int getId() {
+    public int getId() {
 		return id;
 	}
 
@@ -137,8 +129,5 @@ public class TeacherHlo {
 	public void setClasses(List<ClassHlo> classes) {
 		this.classes = classes;
 	}
-
 	
-
-
 }

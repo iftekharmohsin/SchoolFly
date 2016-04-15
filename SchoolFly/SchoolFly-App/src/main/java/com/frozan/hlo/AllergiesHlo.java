@@ -32,4 +32,45 @@ public class AllergiesHlo {
     @JoinColumn(name = "STUDENT_ID", nullable = false)
     private StudentHlo student;
 
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getDetails() {
+		return details;
+	}
+
+	public void setDetails(String details) {
+		this.details = details;
+	}
+
+	public String getPrecautions() {
+		return precautions;
+	}
+
+	public void setPrecautions(String precautions) {
+		this.precautions = precautions;
+	}
+
+	public StudentHlo getStudent() {
+		return student;
+	}
+
+	public void setStudent(StudentHlo student) {
+		this.student = student;
+	}
+
+    
 }

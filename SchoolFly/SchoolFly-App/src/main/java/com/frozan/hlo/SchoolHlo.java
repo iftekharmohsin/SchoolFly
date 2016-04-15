@@ -28,7 +28,6 @@ public class SchoolHlo {
 	@Column(name="SCHOOLADDRESS")
 	private String schoolAddress;
 	
-<<<<<<< Updated upstream
 	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	@JoinColumn(name="SCHOOL_ID" , insertable = false, updatable = false)
 	private List<TeacherHlo> teacherHlos;
@@ -56,11 +55,19 @@ public class SchoolHlo {
 	public void setSchoolAddress(String schoolAddress) {
 		this.schoolAddress = schoolAddress;
 	}
+	public List<TeacherHlo> getTeacherHlos() {
+		return teacherHlos;
+	}
+	public void setTeacherHlos(List<TeacherHlo> teacherHlos) {
+		this.teacherHlos = teacherHlos;
+	}
+	public List<EventHlo> getEventHlos() {
+		return eventHlos;
+	}
+	public void setEventHlos(List<EventHlo> eventHlos) {
+		this.eventHlos = eventHlos;
+	}
 
 	
-=======
-	@OneToOne(fetch = FetchType.LAZY)
-	private TeacherHlo teacher;
 
->>>>>>> Stashed changes
 }

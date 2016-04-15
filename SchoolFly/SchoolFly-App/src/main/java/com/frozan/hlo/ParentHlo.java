@@ -38,7 +38,6 @@ public class ParentHlo {
 	@Column(name="PR_DOB")
 	private Date dob;
 	
-<<<<<<< Updated upstream
 	@Column(name="PHONE_NO")
 	private String phoneNo;
 	
@@ -95,8 +94,4 @@ public class ParentHlo {
 		this.studentHlos = studentHlos;
 	}*/
 
-	
-
-=======
->>>>>>> Stashed changes
 }
