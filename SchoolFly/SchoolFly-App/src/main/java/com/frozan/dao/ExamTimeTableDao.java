@@ -29,12 +29,12 @@ public class ExamTimeTableDao extends TempletDao {
 		delete(timeTableHlo);
 	}
 	
-	public ExamTimeTableHlo getTimeTableByid(int id)
+	public List<ExamTimeTableHlo> getTimeTableByid(int sectionId)
 	{
-		ExamTimeTableHlo timeTableHlo=null;
-		timeTableHlo=new ExamTimeTableHlo();
-		timeTableHlo=(ExamTimeTableHlo)getSession().createQuery("from ExamTimeTableHlo e where e.id=id").uniqueResult();
-		return timeTableHlo;
+		List<ExamTimeTableHlo> timeTableHlo=null;
+		timeTableHlo=new ArrayList<ExamTimeTableHlo>();
+		timeTableHlo=getSession().createQuery("from ExamTimeTableHlo e where e.id=id").list();//change with section id
+		return timeTableHlo;	
 		
 	}
 	

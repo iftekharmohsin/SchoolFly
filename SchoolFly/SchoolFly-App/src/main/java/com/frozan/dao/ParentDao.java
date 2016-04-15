@@ -24,11 +24,11 @@ public class ParentDao extends TempletDao {
 		delete(parentHlo);
 	}
 	
-	public ParentHlo getParentById(int id)
+	public List<ParentHlo> getParentById(int studentId)
 	{
-		ParentHlo parentHlo=null;
-		parentHlo=new ParentHlo();
-		parentHlo=(ParentHlo)getSession().createQuery("from ParentHlo p where p.id=id").uniqueResult();
+		List<ParentHlo> parentHlo=null;
+		parentHlo=new ArrayList<ParentHlo>();
+		parentHlo=getSession().createQuery("from ParentHlo p where p.id=id").list();//change with student idS
 		return parentHlo;
 	}
 	

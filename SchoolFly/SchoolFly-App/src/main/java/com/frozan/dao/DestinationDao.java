@@ -21,12 +21,12 @@ public class DestinationDao extends TempletDao {
 	{
 		delete(destinationHlo);
 	}
-	public DestinationHlo findDestinationById(int id)
+	public DestinationHlo findDestinationById(int studentId)
 	{
 		DestinationHlo destinationHlo = null;
 		destinationHlo = new DestinationHlo();
 		destinationHlo = (DestinationHlo) getSession().createQuery(
-				"from DestinationHlo d where d.id=id").uniqueResult();
+				"from DestinationHlo d where d.id=id").uniqueResult();//change with student id
 		return destinationHlo;
 	}
 	@SuppressWarnings("unchecked")
