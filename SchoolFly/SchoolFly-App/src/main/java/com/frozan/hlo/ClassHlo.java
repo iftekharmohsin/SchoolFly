@@ -10,11 +10,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-
-import org.hibernate.annotations.Fetch;
-import org.hibernate.annotations.FetchMode;
 
 
 @Entity
@@ -30,15 +29,24 @@ public class ClassHlo {
 	private String className;
 	
 	@OneToMany(cascade=CascadeType.ALL,fetch=FetchType.LAZY)
-//	@Fetch(FetchMode.JOIN)
-	@JoinColumn(name="SECTION_ID")
 	private List<SectionHlo> sectionHlos;
-
+	
+	@ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinTable(name = "class_teacher_tb", joinColumns = { 
+    @JoinColumn(name = "class_id")},inverseJoinColumns = { @JoinColumn(name = "teacher_id")})
+	private List<TeacherHlo> teachers;
+	
+	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	private List<EventHlo> eventHlos;
+	
+	//subject one to many
+	
+	/*
 	@OneToMany
 	@Fetch(FetchMode.JOIN)
 	@JoinColumn(name="THR_ID")
 	private List<TeacherHlo> teachers;
-
+*/
 	public int getId() {
 		return id;
 	}
@@ -55,19 +63,5 @@ public class ClassHlo {
 		this.className = className;
 	}
 
-	public List<SectionHlo> getSectionHlos() {
-		return sectionHlos;
-	}
 
-	public void setSectionHlos(List<SectionHlo> sectionHlos) {
-		this.sectionHlos = sectionHlos;
-	}
-
-	public List<TeacherHlo> getTeachers() {
-		return teachers;
-	}
-
-	public void setTeachers(List<TeacherHlo> teachers) {
-		this.teachers = teachers;
-	}
 }

@@ -2,9 +2,12 @@ package com.frozan.hlo;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -21,6 +24,10 @@ public class DestinationHlo {
 	
 	@Column(name="LAND_MARK")
 	private String landMark;
+	
+	 @ManyToOne(fetch = FetchType.LAZY)
+	 @JoinColumn(name = "bus_id")
+	 private BusHlo busHlo;
 	
 	public int getId() {
 		return id;

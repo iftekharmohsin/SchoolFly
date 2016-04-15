@@ -9,11 +9,11 @@ import com.frozan.hlo.AllergiesHlo;
 
 @Repository("allergiesDao")
 public class AllergiesDao  extends TempletDao{
+	
 	public void save(AllergiesHlo allergiesHlo) {
 		persist(allergiesHlo);
 
 	}
-
 	public void modify(AllergiesHlo allergiesHlo) {
 		update(allergiesHlo);
 	}

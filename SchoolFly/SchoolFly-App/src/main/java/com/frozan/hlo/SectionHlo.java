@@ -10,12 +10,12 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
-
-import org.hibernate.annotations.Fetch;
-import org.hibernate.annotations.FetchMode;
 
 @Entity
 @Table(name="SECTION_TB")
@@ -29,29 +29,24 @@ public class SectionHlo {
 	@Column(name="SECTION_NAME")
 	private String sectionName;
 	
-	@OneToMany(cascade=CascadeType.ALL,fetch=FetchType.LAZY)
-	@Fetch(FetchMode.JOIN)
-	@JoinColumn(name="TEACHER_THR_ID")
+	
+	@ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "class_id", nullable = false)
+	private ClassHlo classhlo;
+	
+	@OneToOne(cascade=CascadeType.ALL,fetch=FetchType.LAZY)
+	private ExamTimeTableHlo examTimeTable;
+	
+	@ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinTable(name = "section_teacher_tb", joinColumns = { 
+    @JoinColumn(name = "section_id")},inverseJoinColumns = { @JoinColumn(name = "teacher_id")})
 	private List<TeacherHlo> teachers;
 	
-	/*@OneToMany(cascade=CascadeType.ALL,fetch=FetchType.LAZY)
-	@JoinColumn(name="STUDENT_ID")
-	@Fetch(FetchMode.JOIN)
-	private List<StudentHlo> studentHlos;*/
-
-	@OneToMany(cascade=CascadeType.ALL,fetch=FetchType.LAZY)
-	@JoinColumn(name="SUB_ID")
-	@Fetch(FetchMode.JOIN)
-	private List<SubjectHlo> subjectHlos;
-	
-	@OneToOne
-	@JoinColumn(name="SECTION_ID")
+	@OneToOne(cascade=CascadeType.ALL,fetch=FetchType.LAZY)
 	private DailyTimeTableHlo dailyTimeTableHlo;
 	
-	@OneToMany
-	@JoinColumn(name="EXAM_ID" , insertable = false, updatable = false)
-	private List<ExamHlo> examHlos;
-
+	// attendence mapping
+	
 	public int getId() {
 		return id;
 	}
@@ -68,14 +63,14 @@ public class SectionHlo {
 		this.sectionName = sectionName;
 	}
 
-	public List<TeacherHlo> getTeachers() {
+/*	public List<TeacherHlo> getTeachers() {
 		return teachers;
 	}
 
 	public void setTeachers(List<TeacherHlo> teachers) {
 		this.teachers = teachers;
 	}
-/*//
+//
 //	public List<StudentHlo> getStudentHlos() {
 //		return studentHlos;
 //	}
@@ -83,7 +78,7 @@ public class SectionHlo {
 //	public void setStudentHlos(List<StudentHlo> studentHlos) {
 //		this.studentHlos = studentHlos;
 //	}
-*/
+
 	public List<SubjectHlo> getSubjectHlos() {
 		return subjectHlos;
 	}
@@ -106,5 +101,5 @@ public class SectionHlo {
 
 	public void setExamHlos(List<ExamHlo> examHlos) {
 		this.examHlos = examHlos;
-	}
+	}*/
 }

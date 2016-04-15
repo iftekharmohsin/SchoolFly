@@ -2,7 +2,6 @@ package com.frozan.hlo;
 
 import java.util.Date;
 import java.util.List;
-import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -12,12 +11,11 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
-
-import org.hibernate.annotations.Fetch;
-import org.hibernate.annotations.FetchMode;
 
 @Entity
 @Table(name="TEACHER_TB")
@@ -43,10 +41,24 @@ public class TeacherHlo {
 	@Column(name="THR_DOB")
 	private Date dob;
 
-	@OneToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name="SCHOOL_ID")
-	private SchoolHlo school;
+	@ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinTable(name = "class_teacher_tb", joinColumns = { 
+    @JoinColumn(name = "teacher_id")},inverseJoinColumns = { @JoinColumn(name = "class_id")})
+	private List<ClassHlo> classHlo;
 	
+	 @ManyToOne(fetch = FetchType.LAZY)
+	 @JoinColumn(name = "school_id", nullable = false)
+	 private SchoolHlo school;
+	 
+	 @OneToMany(cascade=CascadeType.ALL,fetch=FetchType.LAZY,mappedBy="teacherHlo")
+	 private List<SubjectHlo> subjectHlos;
+	 
+	 @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	    @JoinTable(name = "section_teacher_tb", joinColumns = { 
+	    @JoinColumn(name = "teacher_id")},inverseJoinColumns = { @JoinColumn(name = "section_id")})
+		private List<SectionHlo> sectionHlos;
+	 
+	/*	
     @OneToMany(cascade=CascadeType.ALL,fetch = FetchType.LAZY)
 	@Column(name = "SUB_ID", insertable = false, updatable = false)
 	@Fetch(FetchMode.JOIN)
@@ -56,7 +68,7 @@ public class TeacherHlo {
 	@JoinColumn(name = "CLASS_ID")
 	@Fetch(FetchMode.JOIN)
 	private List<ClassHlo> classes;
-
+*/
 	public int getId() {
 		return id;
 	}
@@ -105,7 +117,7 @@ public class TeacherHlo {
 		this.dob = dob;
 	}
 
-	public SchoolHlo getSchool() {
+/*	public SchoolHlo getSchool() {
 		return school;
 	}
 
@@ -127,5 +139,5 @@ public class TeacherHlo {
 
 	public void setClasses(List<ClassHlo> classes) {
 		this.classes = classes;
-	}
+	}*/
 }

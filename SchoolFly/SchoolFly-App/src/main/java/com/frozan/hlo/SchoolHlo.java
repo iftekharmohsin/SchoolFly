@@ -29,13 +29,15 @@ public class SchoolHlo {
 	private String schoolAddress;
 	
 	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-	@JoinColumn(name="SCHOOL_ID" , insertable = false, updatable = false)
 	private List<TeacherHlo> teacherHlos;
 	
 	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	private List<EventHlo> eventHlos;
+	/*
+	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	@JoinColumn(name="SCHOOL_ID" , insertable = false, updatable = false)
 	private List<EventHlo>eventHlos;
-	
+	*/
 	public int getId() {
 		return id;
 	}
@@ -55,7 +57,7 @@ public class SchoolHlo {
 	public void setSchoolAddress(String schoolAddress) {
 		this.schoolAddress = schoolAddress;
 	}
-	public List<TeacherHlo> getTeacherHlos() {
+	/*public List<TeacherHlo> getTeacherHlos() {
 		return teacherHlos;
 	}
 	public void setTeacherHlos(List<TeacherHlo> teacherHlos) {
@@ -66,6 +68,6 @@ public class SchoolHlo {
 	}
 	public void setEventHlos(List<EventHlo> eventHlos) {
 		this.eventHlos = eventHlos;
-	}
+	}*/
 
 }

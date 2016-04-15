@@ -24,7 +24,7 @@ public class ExamTimeTableHlo {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int examTimeTableId;
 	
-	@OneToOne
+/*	@OneToOne
 	@JoinColumn(name="SECTION_ID")
 //	@Fetch(FetchMode.JOIN)
 	private SectionHlo sectionHlo;
@@ -35,7 +35,7 @@ public class ExamTimeTableHlo {
 	@OneToOne
 	@JoinColumn(name="SUB_ID")
 	private SubjectHlo subjectHlo;
-	
+	*/
 	@Column(name="START_TIME")
 	private Date examStartTime;
 	
@@ -50,7 +50,7 @@ public class ExamTimeTableHlo {
 		this.examTimeTableId = examTimeTableId;
 	}
 	
-	public SectionHlo getSectionHlo() {
+/*	public SectionHlo getSectionHlo() {
 		return sectionHlo;
 	}
 
@@ -72,7 +72,7 @@ public class ExamTimeTableHlo {
 
 	public void setSubjectHlo(SubjectHlo subjectHlo) {
 		this.subjectHlo = subjectHlo;
-	}
+	}*/
 
 	public Date getExamStartTime() {
 		return examStartTime;

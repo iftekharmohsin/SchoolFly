@@ -1,7 +1,7 @@
 package com.frozan.hlo;
 
 import java.util.Date;
-import java.util.List;
+import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -10,15 +10,9 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToMany;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
-import org.hibernate.annotations.Fetch;
-import org.hibernate.annotations.FetchMode;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name="STUDENT_TB")
@@ -46,68 +40,28 @@ public class StudentHlo {
 	private Date stdDateOfBirth;
 
 	@OneToOne(cascade=CascadeType.ALL,fetch=FetchType.LAZY)
-	private ClassHlo stdClass;
+	private ClassHlo classhlo;
 	
 	@OneToOne(cascade=CascadeType.ALL,fetch=FetchType.LAZY)
-	private SchoolHlo school;
+	private SchoolHlo schoolhlo;
 	
-	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-	//@Fetch(FetchMode.JOIN)
-	@JoinColumn(name="STUDENT_ID" , insertable = false, updatable = false)
-	private List<AllergiesHlo> allergiesHlo;
+	 @OneToMany(cascade=CascadeType.ALL,fetch=FetchType.LAZY,mappedBy="studenthlo")
+	private Set<AllergiesHlo> allergiesHlo;
 	
+		
+	@OneToOne(cascade=CascadeType.ALL,fetch=FetchType.LAZY)
+	private BusHlo busHlos;
 	
-	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-	@JsonIgnore
-	@JoinColumn(name="BUS_ID" , insertable = false, updatable = false)
-	private List<BusHlo> busHlos;
-	
-	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-	//@Fetch(FetchMode.JOIN)
-	@JoinColumn(name="CLASS_ID" , insertable = false, updatable = false)
-	private ClassHlo classHlo;
-	
-	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-//	@Fetch(FetchMode.JOIN)
-	@JoinColumn(name="DAILY_TIME_TABLE_ID", insertable = false, updatable = false)
-	private DailyTimeTableHlo dailyTimeTableHlo;
-
-	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-//	@Fetch(FetchMode.JOIN)
-	@JoinColumn(name="DESTINATION_ID", insertable = false, updatable = false)
+	@OneToOne(cascade=CascadeType.ALL,fetch=FetchType.LAZY)
 	private DestinationHlo destinationHlo;
 	
-	@ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-	//@Fetch(FetchMode.JOIN)
-	@JoinColumn(name="STUDENT_ID" , insertable = false, updatable = false )
-	private List<EventHlo> eventHlos;
-
-	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-	@JsonIgnore
-	@JoinColumn(name="PARENT_ID" , insertable = false, updatable = false)
-	private List<ParentHlo> parentHlos;
+	@OneToOne(cascade=CascadeType.ALL,fetch=FetchType.LAZY)
+	private ParentHlo parentHlos;
 	
-	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-	//@Fetch(FetchMode.JOIN)
-	@JoinColumn(name="STUDENT_ID" , insertable = false, updatable = false)
-	private  List<ExamHlo> examHlos;
+	@OneToOne(cascade=CascadeType.ALL,fetch=FetchType.LAZY)
+	private SectionHlo sectionhlo;
 	
-    //@JsonIgnore
-	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-	//@Fetch(FetchMode.JOIN)
-	@JsonIgnore
-	@JoinColumn(name="Exam_Time_Table_ID" , insertable = false, updatable = false)
-	private List<ExamTimeTableHlo> examTimeTableHlos;
-	
-	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-	//@Fetch(FetchMode.JOIN)
-	@JoinColumn(name="SCHOOL_ID", insertable = false, updatable = false)
-	private SchoolHlo schoolHlo;
-	
-	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-	@JsonIgnore
-	@JoinColumn(name="THR_ID" , insertable = false, updatable = false)
-	private List<TeacherHlo> teacherHlos;
+	//result one to many
 
 	public int getId() {
 		return id;
@@ -157,52 +111,36 @@ public class StudentHlo {
 		this.stdDateOfBirth = stdDateOfBirth;
 	}
 
-	public ClassHlo getStdClass() {
-		return stdClass;
+	public ClassHlo getClasshlo() {
+		return classhlo;
 	}
 
-	public void setStdClass(ClassHlo stdClass) {
-		this.stdClass = stdClass;
+	public void setClasshlo(ClassHlo classhlo) {
+		this.classhlo = classhlo;
 	}
 
-	public SchoolHlo getSchool() {
-		return school;
+	public SchoolHlo getSchoolhlo() {
+		return schoolhlo;
 	}
 
-	public void setSchool(SchoolHlo school) {
-		this.school = school;
+	public void setSchoolhlo(SchoolHlo schoolhlo) {
+		this.schoolhlo = schoolhlo;
 	}
 
-	public List<AllergiesHlo> getAllergiesHlo() {
+	public Set<AllergiesHlo> getAllergiesHlo() {
 		return allergiesHlo;
 	}
 
-	public void setAllergiesHlo(List<AllergiesHlo> allergiesHlo) {
+	public void setAllergiesHlo(Set<AllergiesHlo> allergiesHlo) {
 		this.allergiesHlo = allergiesHlo;
 	}
 
-	public List<BusHlo> getBusHlos() {
+	public BusHlo getBusHlos() {
 		return busHlos;
 	}
 
-	public void setBusHlos(List<BusHlo> busHlos) {
+	public void setBusHlos(BusHlo busHlos) {
 		this.busHlos = busHlos;
-	}
-
-	public ClassHlo getClassHlo() {
-		return classHlo;
-	}
-
-	public void setClassHlo(ClassHlo classHlo) {
-		this.classHlo = classHlo;
-	}
-
-	public DailyTimeTableHlo getDailyTimeTableHlo() {
-		return dailyTimeTableHlo;
-	}
-
-	public void setDailyTimeTableHlo(DailyTimeTableHlo dailyTimeTableHlo) {
-		this.dailyTimeTableHlo = dailyTimeTableHlo;
 	}
 
 	public DestinationHlo getDestinationHlo() {
@@ -213,52 +151,11 @@ public class StudentHlo {
 		this.destinationHlo = destinationHlo;
 	}
 
-	public List<EventHlo> getEventHlos() {
-		return eventHlos;
-	}
-
-	public void setEventHlos(List<EventHlo> eventHlos) {
-		this.eventHlos = eventHlos;
-	}
-
-	public List<ParentHlo> getParentHlos() {
+	public ParentHlo getParentHlos() {
 		return parentHlos;
 	}
 
-	public void setParentHlos(List<ParentHlo> parentHlos) {
+	public void setParentHlos(ParentHlo parentHlos) {
 		this.parentHlos = parentHlos;
 	}
-
-	public List<ExamHlo> getExamHlos() {
-		return examHlos;
-	}
-
-	public void setExamHlos(List<ExamHlo> examHlos) {
-		this.examHlos = examHlos;
-	}
-
-	public List<ExamTimeTableHlo> getExamTimeTableHlos() {
-		return examTimeTableHlos;
-	}
-
-	public void setExamTimeTableHlos(List<ExamTimeTableHlo> examTimeTableHlos) {
-		this.examTimeTableHlos = examTimeTableHlos;
-	}
-
-	public SchoolHlo getSchoolHlo() {
-		return schoolHlo;
-	}
-
-	public void setSchoolHlo(SchoolHlo schoolHlo) {
-		this.schoolHlo = schoolHlo;
-	}
-
-	public List<TeacherHlo> getTeacherHlos() {
-		return teacherHlos;
-	}
-
-	public void setTeacherHlos(List<TeacherHlo> teacherHlos) {
-		this.teacherHlos = teacherHlos;
-	}
-
 }

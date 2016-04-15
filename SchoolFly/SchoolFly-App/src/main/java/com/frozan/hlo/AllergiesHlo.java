@@ -1,5 +1,7 @@
 package com.frozan.hlo;
 
+import java.util.Set;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -29,8 +31,13 @@ public class AllergiesHlo {
 	private String precautions;
     
     @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "student_id", nullable = false)
+	private StudentHlo studenthlo;
+    
+    /*
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "STUDENT_ID", nullable = false)
-    private StudentHlo student;
+    private StudentHlo student*/;
 
 	public int getId() {
 		return id;
@@ -64,13 +71,6 @@ public class AllergiesHlo {
 		this.precautions = precautions;
 	}
 
-	public StudentHlo getStudent() {
-		return student;
-	}
-
-	public void setStudent(StudentHlo student) {
-		this.student = student;
-	}
 
     
 }

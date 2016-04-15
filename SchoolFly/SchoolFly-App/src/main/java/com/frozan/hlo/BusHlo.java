@@ -2,6 +2,7 @@ package com.frozan.hlo;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -26,13 +27,14 @@ public class BusHlo {
 	private String busNo;
 	
 	@OneToMany(fetch = FetchType.LAZY)
-	@JoinColumn(name="TRANSPORT_STAFF_ID" , insertable = false, updatable = false)
 	private List<TransportStaffHlo> transportStaffHlo;
 
 	@OneToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name="BUS_ID")
 	private RouteHlo routeHlo;
 
+	 @OneToMany(cascade=CascadeType.ALL,fetch=FetchType.LAZY,mappedBy="busHlo")
+	private List<DestinationHlo> destinationHlos;
+	
 	public int getId() {
 		return id;
 	}
@@ -48,7 +50,7 @@ public class BusHlo {
 	public void setBusNo(String busNo) {
 		this.busNo = busNo;
 	}
-
+/*
 	public List<TransportStaffHlo> getTransportStaffHlo() {
 		return transportStaffHlo;
 	}
@@ -65,5 +67,5 @@ public class BusHlo {
 		this.routeHlo = routeHlo;
 	}
 
-	
+	*/
 }

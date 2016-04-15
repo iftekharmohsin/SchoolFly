@@ -2,9 +2,12 @@ package com.frozan.hlo;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -21,7 +24,12 @@ public class SubjectHlo {
 	
 	@Column(name="SUB_CODE")
 	private String subjectCode;
-
+	
+	 @ManyToOne(fetch = FetchType.LAZY)
+	 @JoinColumn(name = "THR_ID", nullable = false)
+     private TeacherHlo teacherHlo;
+	 
+	
 	public int getId() {
 		return id;
 	}
