@@ -17,9 +17,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
-
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 
 @Entity
 @Table(name="STUDENT_TB")
@@ -40,57 +39,56 @@ public class StudentHlo {
 	private String stdMiddleName;
 	
 	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-	@JsonIgnore
+	//@Fetch(FetchMode.JOIN)
 	@JoinColumn(name="STUDENT_ID" , insertable = false, updatable = false)
 	private List<AllergiesHlo> allergiesHlo;
 	
 	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-	@JsonIgnore
+	//@Fetch(FetchMode.JOIN)
 	@JoinColumn(name="STUDENT_ID" , insertable = false, updatable = false)
 	private List<BusHlo> busHlos;
 	
 	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-	@JsonIgnore
+	//@Fetch(FetchMode.JOIN)
 	@JoinColumn(name="CLASS_ID" , insertable = false, updatable = false)
 	private ClassHlo classHlo;
 	
 	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-	@JsonIgnore
+//	@Fetch(FetchMode.JOIN)
 	@JoinColumn(name="DAILY_TIME_TABLE_ID", insertable = false, updatable = false)
 	private DailyTimeTableHlo dailyTimeTableHlo;
 
 	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-	@JsonIgnore
+//	@Fetch(FetchMode.JOIN)
 	@JoinColumn(name="DESTINATION_ID", insertable = false, updatable = false)
 	private DestinationHlo destinationHlo;
 	
 	@ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-	@JsonIgnore
+	//@Fetch(FetchMode.JOIN)
 	@JoinColumn(name="STUDENT_ID" , insertable = false, updatable = false )
 	private List<EventHlo> eventHlos;
 	
 	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-	@JsonIgnore
+//	@Fetch(FetchMode.JOIN)
 	@JoinColumn(name="STUDENT_ID" , insertable = false, updatable = false)
 	private List<ParentHlo> parentHlos;
 	
 	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-	@JsonIgnore
+	//@Fetch(FetchMode.JOIN)
 	@JoinColumn(name="STUDENT_ID" , insertable = false, updatable = false)
 	private  List<ExamHlo> examHlos;
 	
 	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-	@JsonIgnore
+	//@Fetch(FetchMode.JOIN)
 	@JoinColumn(name="STUDENT_ID" , insertable = false, updatable = false)
 	private List<ExamTimeTableHlo> examTimeTableHlos;
 	
 	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-	@JsonIgnore
+	//@Fetch(FetchMode.JOIN)
 	@JoinColumn(name="SCHOOL_ID", insertable = false, updatable = false)
 	private SchoolHlo schoolHlo;
 	
 	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-	@JsonIgnore
 	@JoinColumn(name="STUDENT_ID" , insertable = false, updatable = false)
 	private List<TeacherHlo> teacherHlos;
 	

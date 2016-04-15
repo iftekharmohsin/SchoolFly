@@ -1,10 +1,13 @@
 package com.frozan.hlo;
 
-import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -13,37 +16,29 @@ public class ExamHlo {
 
 
 	@Id
-	@Column(name="ID")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name="EXAM_ID")
 	private int id;
-	//TODO:mapping
-	private int classId;
-	@Column(name="EXAM_DATE")
-	private Date examDate;
 	
-	private String subjectId;
-	
+	@OneToOne
+	@JoinColumn(name="Exam_Time_Table_Id")
+	private ExamTimeTableHlo examTimeTableHlo;
+
 	public int getId() {
 		return id;
 	}
+
 	public void setId(int id) {
 		this.id = id;
 	}
-	public int getClassId() {
-		return classId;
+
+	public ExamTimeTableHlo getExamTimeTableHlo() {
+		return examTimeTableHlo;
 	}
-	public void setClassId(int classId) {
-		this.classId = classId;
+
+	public void setExamTimeTableHlo(ExamTimeTableHlo examTimeTableHlo) {
+		this.examTimeTableHlo = examTimeTableHlo;
 	}
-	public Date getExamDate() {
-		return examDate;
-	}
-	public void setExamDate(Date examDate) {
-		this.examDate = examDate;
-	}
-	public String getSubjectId() {
-		return subjectId;
-	}
-	public void setSubjectId(String subjectId) {
-		this.subjectId = subjectId;
-	}
+	
+	
 }

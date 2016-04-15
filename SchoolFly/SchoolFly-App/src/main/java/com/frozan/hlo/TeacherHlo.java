@@ -47,16 +47,16 @@ public class TeacherHlo {
 	@JoinColumn(name="SCHOOL_ID")
 	private SchoolHlo school;
 	
-/*    @OneToMany(cascade=CascadeType.ALL,fetch = FetchType.LAZY)
-	@Column(name = "SUB_ID")
-	@Fetch(FetchMode.JOIN)
+    @OneToMany(cascade=CascadeType.ALL,fetch = FetchType.LAZY)
+	@Column(name = "SUB_ID", insertable = false, updatable = false)
+//	@Fetch(FetchMode.JOIN)
 	private Set<SubjectHlo> subjects;
 	
 	@OneToMany(cascade=CascadeType.ALL,fetch=FetchType.LAZY)
 	@JoinColumn(name = "CLASS_ID")
 	@Fetch(FetchMode.JOIN)
 	private List<ClassHlo> classes;
-*/
+
 	
 	public int getId() {
 		return id;

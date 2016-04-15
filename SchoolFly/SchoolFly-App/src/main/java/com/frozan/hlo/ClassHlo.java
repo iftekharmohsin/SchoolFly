@@ -10,7 +10,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -30,28 +29,11 @@ public class ClassHlo {
 	@Column(name="CLASS_NAME")
 	private String className;
 	
-	@ManyToOne
-	@JoinColumn(name="SCHOOL_ID")
-	private SchoolHlo school;
-	
 	@OneToMany(cascade=CascadeType.ALL,fetch=FetchType.LAZY)
-	@Fetch(FetchMode.JOIN)
-	@JoinColumn(name="TEACHER_THR_ID")
-	private List<TeacherHlo> teachers;
-
-	public List<TeacherHlo> getTeachers() {
-		return teachers;
-	}
-
-	public void setTeachers(List<TeacherHlo> teachers) {
-		this.teachers = teachers;
-	}
-
-	/*@OneToOne(cascade=CascadeType.ALL,fetch=FetchType.LAZY)
-	@JoinColumn(name="STD_ID")
-	private StudentHlo std;
-	private StudentHlo std;	private StudentHlo std;*/
-
+//	@Fetch(FetchMode.JOIN)
+	@JoinColumn(name="SECTION_ID")
+	private List<SectionHlo> sectionHlos;
+	
 	public int getId() {
 		return id;
 	}
@@ -66,6 +48,14 @@ public class ClassHlo {
 
 	public void setClassName(String className) {
 		this.className = className;
+	}
+
+	public List<SectionHlo> getSectionHlos() {
+		return sectionHlos;
+	}
+
+	public void setSectionHlos(List<SectionHlo> sectionHlos) {
+		this.sectionHlos = sectionHlos;
 	}
 
 }

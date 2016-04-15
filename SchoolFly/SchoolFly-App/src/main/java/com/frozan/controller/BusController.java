@@ -9,19 +9,19 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.frozan.hlo.BusHlo;
+import com.frozan.hlo.BusHlo; 
 import com.frozan.service.BusService;
 @RestController
 @RequestMapping("bus")
 public class BusController {
-	@Autowired
+/*	@Autowired
 	private BusService busService;
 	
 	@RequestMapping(value="/saveBus",method=RequestMethod.GET)
 	public void savesubject(BusHlo busHlo){	
 		busHlo.setBusNo("10234");
-		busHlo.setRouteId(123);
-		busHlo.setTransportStaffId(1234);
+		//busHlo.setRouteId(123);
+		//busHlo.setTransportStaffId(1234);
 		busService.save(busHlo);
 	}
 	
@@ -40,5 +40,5 @@ public class BusController {
 
 
 	}
-
+*/
 }

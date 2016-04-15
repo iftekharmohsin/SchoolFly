@@ -1,21 +1,35 @@
 package com.frozan.hlo;
 import javax.persistence.*;
 
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
+
 @Entity
 @Table(name="DAILY_TIME_TABLE_TB")
 public class DailyTimeTableHlo {
 
-	private String classId;
-	private String dayId;
-	private String subject;
-	private String startTime;
-	private String endTime;
-	private String teacher;
-	private int dailyTimeTableId;
-	
 	@Id
 	@Column(name="DAILY_TIME_TABLE_ID")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int dailyTimeTableId;
+	
+	@Column(name="SUBJECT")
+	private String subject;
+	
+	@Column(name="START_TIME")
+	private String startTime;
+	
+	@Column(name="END_TIME")
+	private String endTime;
+	
+	@Column(name="TEACHER")
+	private String teacher;
+	
+	@OneToOne
+	@JoinColumn(name="SECTION_ID")
+	@Fetch(FetchMode.JOIN)
+	private SectionHlo sectionHlo;	
+
 	public int getDailyTimeTableId() {
 		
 		return dailyTimeTableId;
@@ -23,23 +37,7 @@ public class DailyTimeTableHlo {
 	public void setDailyTimeTableId(int dailyTimeTableId) {
 		this.dailyTimeTableId = dailyTimeTableId;
 	}
-	@Column(name="CLASS_ID")
-	public String getClassId() {
-		return classId;
-	}
-	public void setClassId(String classId) {
-		this.classId = classId;
-	}
 	
-	@Column(name="DAY_ID")
-	public String getDayId() {
-		return dayId;
-	}
-	public void setDayId(String dayId) {
-		this.dayId = dayId;
-	}
-	
-	@Column(name="SUBJECT")
 	public String getSubject() {
 		return subject;
 	}
@@ -47,7 +45,7 @@ public class DailyTimeTableHlo {
 		this.subject = subject;
 	}
 	
-	@Column(name="START_TIME")
+
 	public String getStartTime() {
 		return startTime;
 	}
@@ -55,7 +53,7 @@ public class DailyTimeTableHlo {
 		this.startTime = startTime;
 	}
 	
-	@Column(name="END_TIME")
+
 	public String getEndTime() {
 		return endTime;
 	}
@@ -63,20 +61,19 @@ public class DailyTimeTableHlo {
 		this.endTime = endTime;
 	}
 
-	@Column(name="TEACHER")
 	public String getTeacher() {
 		return teacher;
 	}
 	public void setTeacher(String teacher) {
 		this.teacher = teacher;
 	}
-	@Override
-	public String toString() {
-		return "DailyTimeTableHlo [classId=" + classId + ", dayId=" + dayId
-				+ ", subject=" + subject + ", startTime=" + startTime
-				+ ", endTime=" + endTime + ", teacher=" + teacher
-				+ ", dailyTimeTableId=" + dailyTimeTableId + "]";
+	public SectionHlo getSectionHlo() {
+		return sectionHlo;
+	}
+	public void setSectionHlo(SectionHlo sectionHlo) {
+		this.sectionHlo = sectionHlo;
 	}
 	
+
 
 }

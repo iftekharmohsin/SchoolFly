@@ -1,11 +1,18 @@
 package com.frozan.hlo;
 
+import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
+
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 
 
 @Entity
@@ -15,63 +22,71 @@ public class ExamTimeTableHlo {
 	@Id
 	@Column(name="Exam_Time_Table_Id")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	
 	private int examTimeTableId;
-	private String classId;
-	private String examDay;
-	private String subject;
-	private String startTime;
-	private String endTime;
 	
-	public int getExamtimeTableId() {
-		return examTimeTableId;
-	}
-	public void setExamtimeTableId(int examtimeTableId) {
-		this.examTimeTableId = examtimeTableId;
-	}
+	@OneToOne
+	@JoinColumn(name="SECTION_ID")
+//	@Fetch(FetchMode.JOIN)
+	private SectionHlo sectionHlo;
+	
+	@Column(name="EXAM_DATE")
+	private Date examDate;
 
-	@Column(name="CLASS_ID")
-	public String getClassId() {
-		return classId;
-	}
-	public void setClassId(String classId) {
-		this.classId = classId;
-	}
-	@Column(name="EXAM_DAY")
-	public String getExamDay() {
-		return examDay;
-	}
-	public void setExamDay(String examDay) {
-		this.examDay = examDay;
-	}
-	@Column(name="SUBJECT")
-	public String getSubject() {
-		return subject;
-	}
-	public void setSubject(String subject) {
-		this.subject = subject;
-	}
+	@OneToOne
+	@JoinColumn(name="SUB_ID")
+	private SubjectHlo subjectHlo;
+	
 	@Column(name="START_TIME")
-	public String getStartTime() {
-		return startTime;
-	}
-	public void setStartTime(String startTime) {
-		this.startTime = startTime;
-	}
+	private Date examStartTime;
 	
 	@Column(name="END_TIME")
-	public String getEndTime() {
-		return endTime;
-	}
-	public void setEndTime(String endTime) {
-		this.endTime = endTime;
-	}
-	@Override
-	public String toString() {
-		return "ExamTimeTableHlo [examTimeTableId=" + examTimeTableId
-				+ ", classId=" + classId + ", examDay=" + examDay
-				+ ", subject=" + subject + ", startTime=" + startTime
-				+ ", endTime=" + endTime + "]";
+	private Date examEndTime;
+
+	public int getExamTimeTableId() {
+		return examTimeTableId;
 	}
 
+	public void setExamTimeTableId(int examTimeTableId) {
+		this.examTimeTableId = examTimeTableId;
+	}
+	
+	public SectionHlo getSectionHlo() {
+		return sectionHlo;
+	}
+
+	public void setSectionHlo(SectionHlo sectionHlo) {
+		this.sectionHlo = sectionHlo;
+	}
+
+	public Date getExamDate() {
+		return examDate;
+	}
+
+	public void setExamDate(Date examDate) {
+		this.examDate = examDate;
+	}
+
+	public SubjectHlo getSubjectHlo() {
+		return subjectHlo;
+	}
+
+	public void setSubjectHlo(SubjectHlo subjectHlo) {
+		this.subjectHlo = subjectHlo;
+	}
+
+	public Date getExamStartTime() {
+		return examStartTime;
+	}
+
+	public void setExamStartTime(Date examStartTime) {
+		this.examStartTime = examStartTime;
+	}
+
+	public Date getExamEndTime() {
+		return examEndTime;
+	}
+
+	public void setExamEndTime(Date examEndTime) {
+		this.examEndTime = examEndTime;
+	}
 }
