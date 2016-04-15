@@ -19,7 +19,11 @@ public class BusController {
 	
 	@RequestMapping(value="/saveBus",method=RequestMethod.GET)
 	public void savesubject(BusHlo busHlo){	
+<<<<<<< Updated upstream
 		busHlo.setBusNo("10234");
+=======
+		//busHlo.setBusNo("10234");
+>>>>>>> Stashed changes
 		//busHlo.setRouteId(123);
 		//busHlo.setTransportStaffId(1234);
 		busService.save(busHlo);

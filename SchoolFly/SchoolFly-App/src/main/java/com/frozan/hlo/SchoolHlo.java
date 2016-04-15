@@ -28,6 +28,7 @@ public class SchoolHlo {
 	@Column(name="SCHOOLADDRESS")
 	private String schoolAddress;
 	
+<<<<<<< Updated upstream
 	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	@JoinColumn(name="SCHOOL_ID" , insertable = false, updatable = false)
 	private List<TeacherHlo> teacherHlos;
@@ -57,4 +58,9 @@ public class SchoolHlo {
 	}
 
 	
+=======
+	@OneToOne(fetch = FetchType.LAZY)
+	private TeacherHlo teacher;
+
+>>>>>>> Stashed changes
 }

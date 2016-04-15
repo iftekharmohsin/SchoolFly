@@ -14,9 +14,9 @@ import javax.persistence.Table;
 @Table(name="Exam")
 public class ExamHlo {
 
-
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+<<<<<<< Updated upstream
 	@Column(name="EXAM_ID")
 	private int id;
 	
@@ -40,5 +40,12 @@ public class ExamHlo {
 		this.examTimeTableHlo = examTimeTableHlo;
 	}
 	
+=======
+	@Column(name = "PARENT_ID")
+	private int id;
+	
+	@Column(name="EXAM_DATE")
+	private Date examDate;
+>>>>>>> Stashed changes
 	
 }

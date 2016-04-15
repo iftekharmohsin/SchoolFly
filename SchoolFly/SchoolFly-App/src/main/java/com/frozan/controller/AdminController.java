@@ -37,12 +37,12 @@ public class AdminController   {
 	@RequestMapping(value = "/save", method = RequestMethod.GET)
 	public String save(HttpServletRequest request) {
 		
-		StudentHlo std=new StudentHlo();
+		/*StudentHlo std=new StudentHlo();
     std.setStdDateOfBirth(new Date());
     std.setStdFirstName("ss");
     std.setStdLastName("las");
-std.setStdMiddleName("m");	
-studentSvc.save(std);
+std.setStdMiddleName("m");*/	
+//studentSvc.save(std);
 		return "size";
 	
 	}

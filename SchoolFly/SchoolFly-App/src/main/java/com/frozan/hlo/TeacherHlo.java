@@ -48,8 +48,13 @@ public class TeacherHlo {
 	private SchoolHlo school;
 	
     @OneToMany(cascade=CascadeType.ALL,fetch = FetchType.LAZY)
+<<<<<<< Updated upstream
 	@Column(name = "SUB_ID", insertable = false, updatable = false)
 //	@Fetch(FetchMode.JOIN)
+=======
+	@Column(name = "SUB_ID")
+	@Fetch(FetchMode.JOIN)
+>>>>>>> Stashed changes
 	private Set<SubjectHlo> subjects;
 	
 	@OneToMany(cascade=CascadeType.ALL,fetch=FetchType.LAZY)
@@ -57,90 +62,83 @@ public class TeacherHlo {
 	@Fetch(FetchMode.JOIN)
 	private List<ClassHlo> classes;
 
+<<<<<<< Updated upstream
 	
+=======
+>>>>>>> Stashed changes
 	public int getId() {
 		return id;
 	}
-	
+
 	public void setId(int id) {
 		this.id = id;
 	}
-
 
 	public String getFirstName() {
 		return firstName;
 	}
 
-
 	public void setFirstName(String firstName) {
 		this.firstName = firstName;
 	}
-
 
 	public String getLastName() {
 		return lastName;
 	}
 
-
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
-
 
 	public String getMiddleName() {
 		return middleName;
 	}
 
-
 	public void setMiddleName(String middleName) {
 		this.middleName = middleName;
 	}
-
 
 	public String getGender() {
 		return gender;
 	}
 
-
 	public void setGender(String gender) {
 		this.gender = gender;
 	}
-
 
 	public Date getDob() {
 		return dob;
 	}
 
-
 	public void setDob(Date dob) {
 		this.dob = dob;
 	}
-
 
 	public SchoolHlo getSchool() {
 		return school;
 	}
 
-
 	public void setSchool(SchoolHlo school) {
 		this.school = school;
 	}
 
-/*	public Set<SubjectHlo> getSubjects() {
+	public Set<SubjectHlo> getSubjects() {
 		return subjects;
 	}
 
 	public void setSubjects(Set<SubjectHlo> subjects) {
 		this.subjects = subjects;
-	}*/
+	}
 
-/*	public List<ClassHlo> getClasses() {
+	public List<ClassHlo> getClasses() {
 		return classes;
 	}
 
-
 	public void setClasses(List<ClassHlo> classes) {
 		this.classes = classes;
-	}*/
+	}
+
+	
+
 
 }

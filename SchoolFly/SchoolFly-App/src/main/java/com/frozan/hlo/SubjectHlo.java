@@ -45,7 +45,4 @@ public class SubjectHlo {
 	public void setSubjectCode(String subjectCode) {
 		this.subjectCode = subjectCode;
 	}
-	
-	
-	
 }

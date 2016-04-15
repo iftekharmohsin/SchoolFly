@@ -20,12 +20,10 @@ public class StudentProfileController {
 	@Autowired
 	private StudentSvc studentSvc;
 	
-	@RequestMapping(method=RequestMethod.GET)
 	@ResponseBody
-	public StudentHlo getStudent(@PathVariable int id){
+	public StudentHlo getStudentById(@PathVariable int id){
 		return studentSvc.getStudentById(id);
 	}
-	
 	@RequestMapping(value="/allergies",method=RequestMethod.GET)
 	@ResponseBody
 	public List<AllergiesHlo> getAllergies(@PathVariable int id){
