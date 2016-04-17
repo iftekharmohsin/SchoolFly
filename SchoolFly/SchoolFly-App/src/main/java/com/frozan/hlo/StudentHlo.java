@@ -39,26 +39,26 @@ public class StudentHlo {
 	@Column(name="STD_DOB")
 	private Date stdDateOfBirth;
 
-	@OneToOne(cascade=CascadeType.ALL,fetch=FetchType.LAZY)
+	@OneToOne(cascade=CascadeType.ALL,fetch=FetchType.EAGER)
 	private ClassHlo classhlo;
 	
-	@OneToOne(cascade=CascadeType.ALL,fetch=FetchType.LAZY)
+	@OneToOne(cascade=CascadeType.ALL,fetch=FetchType.EAGER)
 	private SchoolHlo schoolhlo;
 	
-	 @OneToMany(cascade=CascadeType.ALL,fetch=FetchType.LAZY,mappedBy="studenthlo")
+	 @OneToMany(cascade=CascadeType.ALL,fetch=FetchType.EAGER)
 	private Set<AllergiesHlo> allergiesHlo;
 	
 		
-	@OneToOne(cascade=CascadeType.ALL,fetch=FetchType.LAZY)
+	@OneToOne(cascade=CascadeType.ALL,fetch=FetchType.EAGER)
 	private BusHlo busHlos;
 	
-	@OneToOne(cascade=CascadeType.ALL,fetch=FetchType.LAZY)
+	@OneToOne(cascade=CascadeType.ALL,fetch=FetchType.EAGER)
 	private DestinationHlo destinationHlo;
 	
-	@OneToOne(cascade=CascadeType.ALL,fetch=FetchType.LAZY)
+	@OneToOne(cascade=CascadeType.ALL,fetch=FetchType.EAGER)
 	private ParentHlo parentHlos;
 	
-	@OneToOne(cascade=CascadeType.ALL,fetch=FetchType.LAZY)
+	@OneToOne(cascade=CascadeType.ALL,fetch=FetchType.EAGER)
 	private SectionHlo sectionhlo;
 	
 	//result one to many

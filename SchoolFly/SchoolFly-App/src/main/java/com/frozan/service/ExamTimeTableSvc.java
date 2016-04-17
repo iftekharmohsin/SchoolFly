@@ -28,10 +28,10 @@ public class ExamTimeTableSvc {
 		examTimeTableDao.delete(timeTableHlo);
 	}
 
-	public ExamTimeTableHlo getTimeTableByid(int id) {
-		return examTimeTableDao.getTimeTableByid(id);
+	/*public ExamTimeTableHlo getTimeTableByid(int id) {
+		//return examTimeTableDao.getTimeTableByid(id);
 
-	}
+	}*/
 
 	@SuppressWarnings("unchecked")
 	public List<ExamTimeTableHlo> getTimeTable() {

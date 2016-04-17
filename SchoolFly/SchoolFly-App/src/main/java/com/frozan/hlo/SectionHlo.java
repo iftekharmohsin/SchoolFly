@@ -31,7 +31,7 @@ public class SectionHlo {
 	
 	
 	@ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "class_id", nullable = false)
+    @JoinColumn(name = "class_id", nullable = true)
 	private ClassHlo classhlo;
 	
 	@OneToOne(cascade=CascadeType.ALL,fetch=FetchType.LAZY)

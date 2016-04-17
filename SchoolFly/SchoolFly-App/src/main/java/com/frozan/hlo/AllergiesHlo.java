@@ -2,6 +2,7 @@ package com.frozan.hlo;
 
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -30,10 +31,10 @@ public class AllergiesHlo {
     @Column(name="AR_PRECAUTIONS")
 	private String precautions;
     
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "student_id", nullable = false)
+   @ManyToOne(cascade=CascadeType.ALL,fetch = FetchType.EAGER)
+  //  @JoinColumn(name = "student_id", nullable = true)
 	private StudentHlo studenthlo;
-    
+ 
     /*
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "STUDENT_ID", nullable = false)
@@ -69,6 +70,14 @@ public class AllergiesHlo {
 
 	public void setPrecautions(String precautions) {
 		this.precautions = precautions;
+	}
+
+	public StudentHlo getStudenthlo() {
+		return studenthlo;
+	}
+
+	public void setStudenthlo(StudentHlo studenthlo) {
+		this.studenthlo = studenthlo;
 	}
 
 

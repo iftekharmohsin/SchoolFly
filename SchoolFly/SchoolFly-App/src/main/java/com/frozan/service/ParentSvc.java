@@ -28,9 +28,9 @@ public class ParentSvc {
 		parentDao.delete(parentHlo);
 	}
 
-	public ParentHlo getParentById(int id) {
-		return parentDao.getParentById(id);
-	}
+	/*public ParentHlo getParentById(int id) {
+		//return parentDao.getParentById(id);
+	}*/
 
 	public List<ParentHlo> getAllParents() {
 		return parentDao.getAllParents();

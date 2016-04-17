@@ -12,6 +12,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
 @Entity
@@ -28,7 +29,8 @@ public class BusHlo {
 	
 	@OneToMany(fetch = FetchType.LAZY)
 	private List<TransportStaffHlo> transportStaffHlo;
-
+  
+	
 	@OneToOne(fetch = FetchType.LAZY)
 	private RouteHlo routeHlo;
 

@@ -46,7 +46,7 @@ public class StudentSvc {
 	
 	@Autowired
 	private ParentDao parentDao;
-	
+	@Transactional
 	public void save(StudentHlo studentHlo){
       studentDao.save(studentHlo);
 		
@@ -76,6 +76,9 @@ public class StudentSvc {
 		return allergiesDao.findAllAllergies();
 	}
 	
+	public void addAllergies(AllergiesHlo allergiesHlo){
+		allergiesDao.save(allergiesHlo);
+	}
 	public BusHlo getBus(int id){
 		return busDao.findBusByid(id);
 	}

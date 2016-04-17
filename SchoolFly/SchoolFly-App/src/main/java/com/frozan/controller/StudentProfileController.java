@@ -17,23 +17,36 @@ import com.frozan.hlo.DestinationHlo;
 import com.frozan.hlo.ExamTimeTableHlo;
 import com.frozan.hlo.ParentHlo;
 import com.frozan.hlo.StudentHlo;
+import com.frozan.service.AllergiesService;
 import com.frozan.service.StudentSvc;
 
 @RestController
-@RequestMapping("student/{studentId}")
+@RequestMapping("student")
 public class StudentProfileController {
 
 	@Autowired
 	private StudentSvc studentSvc;
 	
-	@ResponseBody
-	public StudentHlo getStudentById(@PathVariable int id){
-		return studentSvc.getStudentById(id);
+	@RequestMapping(value="/addStudent",method=RequestMethod.POST)
+	public void addStudent(@RequestBody StudentHlo studentHlo)
+	{
+	
+		studentSvc.save(studentHlo);
 	}
 	
+	@ResponseBody
+	@RequestMapping(value="getStudent/{studentId}",method=RequestMethod.GET)
+	public StudentHlo getStudentById(@PathVariable int studentId){
+		return studentSvc.getStudentById(studentId);
+	}
+	
+	@RequestMapping(value="addAllergies")
+	public void addAllergies(@RequestBody AllergiesHlo allergiesHlo){
+	 studentSvc.addAllergies(allergiesHlo);
+	}
 	@RequestMapping(value="/allergies",method=RequestMethod.GET)
 	@ResponseBody
-	public List<AllergiesHlo> getAllergies(@PathVariable int id){
+	public List<AllergiesHlo> getAllergies(@PathVariable int studentId){
 		return studentSvc.getAllergies();
 	}
 	
