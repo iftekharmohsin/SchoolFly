@@ -17,33 +17,20 @@ import com.frozan.hlo.DestinationHlo;
 import com.frozan.hlo.ExamTimeTableHlo;
 import com.frozan.hlo.ParentHlo;
 import com.frozan.hlo.StudentHlo;
-import com.frozan.service.AllergiesService;
 import com.frozan.service.StudentSvc;
 
 @RestController
-@RequestMapping("student")
+@RequestMapping("student/{studentId}")
 public class StudentProfileController {
 
 	@Autowired
 	private StudentSvc studentSvc;
 	
-	@RequestMapping(value="/addStudent",method=RequestMethod.POST)
-	public void addStudent(@RequestBody StudentHlo studentHlo)
-	{
-	
-		studentSvc.save(studentHlo);
-	}
-	
 	@ResponseBody
-	@RequestMapping(value="getStudent/{studentId}",method=RequestMethod.GET)
 	public StudentHlo getStudentById(@PathVariable int studentId){
 		return studentSvc.getStudentById(studentId);
 	}
 	
-	@RequestMapping(value="addAllergies")
-	public void addAllergies(@RequestBody AllergiesHlo allergiesHlo){
-	 studentSvc.addAllergies(allergiesHlo);
-	}
 	@RequestMapping(value="/allergies",method=RequestMethod.GET)
 	@ResponseBody
 	public List<AllergiesHlo> getAllergies(@PathVariable int studentId){
@@ -52,8 +39,8 @@ public class StudentProfileController {
 	
 	@RequestMapping(value="/bus",method=RequestMethod.GET)
 	@ResponseBody
-	public BusHlo getBus(@PathVariable int id){
-		return studentSvc.getBus(id);
+	public BusHlo getBus(@PathVariable int studentId){
+		return studentSvc.getBus(studentId);
 	}
 	
 	@RequestMapping(value="/examtimetable/{sectionId}",method=RequestMethod.GET)
@@ -78,12 +65,6 @@ public class StudentProfileController {
 	@ResponseBody
 	public List<ParentHlo> getParent(@PathVariable int studentId){
 		return studentSvc.getParent(studentId);
-	}
-	
-	@RequestMapping(value="/setparent",method=RequestMethod.GET)
-	public void setParent(@RequestBody ParentHlo parentHlo,@PathVariable int studentId){
-		studentSvc.setparent(parentHlo, studentId);
-		
 	}
 	
 	@RequestMapping(value="/setdestination",method=RequestMethod.GET)

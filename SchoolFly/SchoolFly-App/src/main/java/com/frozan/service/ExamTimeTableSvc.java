@@ -1,6 +1,5 @@
 package com.frozan.service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,10 +27,10 @@ public class ExamTimeTableSvc {
 		examTimeTableDao.delete(timeTableHlo);
 	}
 
-	/*public ExamTimeTableHlo getTimeTableByid(int id) {
-		//return examTimeTableDao.getTimeTableByid(id);
+	public List<ExamTimeTableHlo> getTimeTableByid(int id) {
+		return examTimeTableDao.getTimeTableByid(id);
 
-	}*/
+	}
 
 	@SuppressWarnings("unchecked")
 	public List<ExamTimeTableHlo> getTimeTable() {
