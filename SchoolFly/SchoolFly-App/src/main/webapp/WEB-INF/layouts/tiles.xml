@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+<tiles-definitions>
+	<definition name="base.definition" template="/WEB-INF/views/layout.jsp">
+		<put-attribute name="title" value="FrameworkOnly | Apache Tiles 3 + Spring 4 MVC"></put-attribute>
+		<put-attribute name="stylecss" value="/WEB-INF/views/firststylecss.jsp"></put-attribute>
+		<put-attribute name="header" value=""></put-attribute>
+		<put-attribute name="body" value=""></put-attribute>
+		<put-attribute name="footer" value=""></put-attribute>
+		<put-attribute name="scriptjs" value="/WEB-INF/views/firstscriptjs.jsp"></put-attribute>
+	</definition>
+	<definition name="homepage" extends="base.definition">
+	    <put-attribute name="title" value="FrameworkOnly | First Page"></put-attribute>
+		<put-attribute name="header" value="/WEB-INF/views/firstheader.jsp"></put-attribute>
+		<put-attribute name="body" value="/WEB-INF/views/firstbody.jsp"></put-attribute>
+		<put-attribute name="footer" value="/WEB-INF/views/firstfooter.jsp"></put-attribute>
+	</definition>
+	<definition name="secondpage" extends="base.definition">
+	    <put-attribute name="title" value="FrameworkOnly | Second Page"></put-attribute>
+		<put-attribute name="header" value="/WEB-INF/views/second/secondheader.jsp"></put-attribute>
+		<put-attribute name="body" value="/WEB-INF/views/second/secondbody.jsp"></put-attribute>
+		<put-attribute name="footer" value="/WEB-INF/views/second/secondfooter.jsp"></put-attribute>
+	</definition>
+	<definition name="coursegrid" extends="base.definition">
+	    <put-attribute name="title" value="Course Grid"></put-attribute>
+		<put-attribute name="header" value="/WEB-INF/views/second/secondheader.jsp"></put-attribute>
+		<put-attribute name="body" value="/WEB-INF/views/coursegrid.jsp"></put-attribute>
+		<put-attribute name="footer" value="/WEB-INF/views/second/secondfooter.jsp"></put-attribute>
+	</definition>
+</tiles-definitions>
