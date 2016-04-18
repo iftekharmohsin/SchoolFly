@@ -1,13 +1,11 @@
 package com.frozan.service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.frozan.dao.ParentDao;
-import com.frozan.entity.Parent;
 import com.frozan.hlo.ParentHlo;
 
 @Service("parentSvc")
@@ -28,9 +26,9 @@ public class ParentSvc {
 		parentDao.delete(parentHlo);
 	}
 
-	/*public ParentHlo getParentById(int id) {
-		//return parentDao.getParentById(id);
-	}*/
+	public List<ParentHlo> getParentById(int id) {
+		return parentDao.getParentById(id);
+	}
 
 	public List<ParentHlo> getAllParents() {
 		return parentDao.getAllParents();
