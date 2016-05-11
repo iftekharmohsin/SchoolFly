@@ -14,6 +14,43 @@ $(window).on("scroll", function() {
 
 $(window).on("load", function() {
   "use strict";
+  $("#gallery,#contactus,#eventNews,#aboutus,#signinup").on("click", function( ) {
+      // e.preventDefault();
+
+       $("body, html").animate({ 
+           scrollTop: $( $(this).attr('href') ).offset().top 
+       }, 1000);
+
+   });
+  
+  /*$("#register #commonSignupModal").delegate('#roleOptn', 'change', function(){debugger;
+	  
+	  var rolevalue = $("#register").find('select[name="loginrole"]').val();
+	  var action = "save"+rolevalue;
+	  if(rolevalue === 'Teacher'){
+		  //$('#register #commonSignupModal').attr('action', action);
+	  }else if(rolevalue === 'Student'){
+		  //$('#register #commonSignupModal').attr('action', action);
+	  }else if(rolevalue === 'Parent'){
+		 // $('#register #commonSignupModal').attr('action', action);
+		  alert();
+		  $("#register").css("visibility", "hidden");
+		  $("#parentRegisterModal").css("visibility", "visible");
+	  }
+  });
+  
+  $("#registerOption").click(function(){
+	  $("#parentRegisterModal").modal();
+  });*/
+  
+  
+//To Top Btn
+  $('#to-top, #myScrollspy').click(function() {
+    $('html, body').animate({
+      scrollTop: 0
+    }, 'slow');
+    return false;
+  });
 
 
   // === Masonry blog posts ===
@@ -70,14 +107,14 @@ $(document).ready(function() {
   // Counters
   if ($('.counters').length > 0) {
 
-    var options = {  
+   /* var options = {  
       useEasing: true,
         useGrouping: true,
         separator: '',
         decimal: '.',
         prefix: '',
         suffix: ''
-    };
+    };*/
     $('.counters').waypoint(function() {
       var numAnim = new CountUp("counting-1", 0, 12, 0, 6.5, options);
       numAnim.start();
@@ -232,7 +269,7 @@ $(document).ready(function() {
   $('#accordion').on('shown.bs.collapse', toggleIcon);
 
   // To Top Btn
-  $('#to-top').click(function() {
+  $('#to-top, #myScrollspy').click(function() {
     $('html, body').animate({
       scrollTop: 0
     }, 'slow');
@@ -277,4 +314,7 @@ $(document).ready(function() {
         target: $('.carousel')
     });
   })(jQuery);
+  
+  
+	   
 });

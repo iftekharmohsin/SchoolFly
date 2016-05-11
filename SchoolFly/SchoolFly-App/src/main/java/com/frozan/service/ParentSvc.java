@@ -4,18 +4,24 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.frozan.dao.ParentDao;
 import com.frozan.hlo.ParentHlo;
 
 @Service("parentSvc")
+@Transactional
 public class ParentSvc {
 
 	@Autowired
 	ParentDao parentDao;
 
-	public void save(ParentHlo parentHlo) {
-		parentDao.save(parentHlo);
+	public boolean save(ParentHlo parentHlo) {
+		boolean b= parentDao.save(parentHlo);
+		if(b){
+			return true;
+		}
+		return false;
 	}
 
 	public void modify(ParentHlo parentHlo) {
@@ -33,6 +39,16 @@ public class ParentSvc {
 	public List<ParentHlo> getAllParents() {
 		return parentDao.getAllParents();
 
+	}
+
+	public ParentHlo findParentById(int id) {
+		
+		return parentDao.findById(id);
+		
+	}
+
+	public ParentHlo findParentByEmail(String email) {
+		return parentDao.findByMail(email);
 	}
 
 }

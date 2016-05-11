@@ -1,84 +1,7 @@
 
- 
-
     <div id="site" class="site">
       <div class="header">
-        <!-- Navigation-->
         
-        <nav class="navbar duplicate hidden navbar-1">
-          <!-- Search Form-->
-          <form method="get" action="#" class="search-form container">
-            <div>
-              <input type="search" name="search-field" placeholder="Type and hit enter..." class="text-search-field"/><i class="close-btn fa fa-close"></i>
-            </div>
-          </form>
-          <div class="navigation container">
-            <!-- Nav Bar Toggle/collapse and Logo-->
-            <div class="navbar-header">
-              <div class="navbar-brand"><a href="index.html"><img src="assets/img/logo.png" alt=""/></a></div>
-              <!-- Navigation Toggle-->
-              <button type="button" data-toggle="collapse" data-target="#myNavbar" class="navbar-toggle"><span class="src-only"></span><i class="fa fa-bars"></i></button>
-              <div class="search-nav min"><i class="fa fa-search"></i></div>
-            </div>
-            <!-- Collpsing Items and Navigation-->
-            <div id="myNavbar" class="collapse navbar-collapse">
-              <ul class="nav navbar-nav navbar-right">
-                <!-- Item 1-->
-                <li class="menu-item"><a data-toggle="dropdown" href="#" class="selected dropdown-toggle">Home<i class="fa fa-angle-down"></i></a>
-                  <ul class="sub-menu">
-                    <li><a href="index.html">Home Page 1</a></li>
-                    <li><a href="index-2.html">Home Page 2</a></li>
-                  </ul>
-                </li>
-                <!-- Item 2-->
-                <li class="menu-item"><a data-toggle="dropdown" href="#" class="dropdown-toggle">Course<i class="fa fa-angle-down"></i></a>
-                  <ul class="sub-menu">
-                    <li><a href="course-grid.html">Course Grid</a></li>
-                    <li><a href="course-list.html">Course List</a></li>
-                    <li><a href="course-details.html">Course Details</a></li>
-                  </ul>
-                </li>
-                <!-- Item 3-->
-                <li class="menu-item"><a data-toggle="dropdown" href="#" class="dropdown-toggle">Teachers<i class="fa fa-angle-down"></i></a>
-                  <ul class="sub-menu">
-                    <li><a href="teacher-grid.html">Teachers Grid</a></li>
-                    <li><a href="teacher-list.html">Teacher List</a></li>
-                    <li><a href="teacher-details.html">Teacher Details</a></li>
-                  </ul>
-                </li>
-                <!-- Item 4-->
-                <li class="menu-item"><a data-toggle="dropdown" href="" class="dropdown-toggle">Events<i class="fa fa-angle-down"></i></a>
-                  <ul class="sub-menu">
-                    <li><a href="event-grid.html">Events Grid</a></li>
-                    <li><a href="event-details.html">Events Details</a></li>
-                  </ul>
-                </li>
-                <!-- Item 5-->
-                <li class="menu-item"><a data-toggle="dropdown" href="#" class="dropdown-toggle">Blog<i class="fa fa-angle-down"></i></a>
-                  <ul class="sub-menu">
-                    <li><a href="blog-masonry.html">Blog Masonry</a></li>
-                    <li><a href="blog-list.html">Blog Listing</a></li>
-                    <li><a href="blog-details.html">Blog Details</a></li>
-                  </ul>
-                </li>
-                <!-- Item 6-->
-                <li class="menu-item"><a data-toggle="dropdown" href="#" class="dropdown-toggle">Pages<i class="fa fa-angle-down"></i></a>
-                  <ul class="sub-menu">
-                    <li><a href="timetable.html">Time Table</a></li>
-                    <li><a href="princing-plans.html">Pricing Plans</a></li>
-                  </ul>
-                </li>
-                <!-- Item 7-->
-                <li class="menu-item"><a href="contact-us.html">Contact</a></li>
-                <!-- Search Icon-->
-                <li class="menu-item">
-                  <div class="search-nav big"><i class="fa fa-search"></i></div>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </nav>
-
         <!-- Jumbotoron-->
         <div class="jumbotron jumbotron-1">
           <div class="container">
@@ -159,9 +82,9 @@
                 <!-- Info Block-->
                 <div class="carousel">
                   <ul class="carousel-wrapper">
-                    <li class="carousel-box"><img src="img/others/owl-image-1.jpg" alt=""/></li>
+                    <!-- <li class="carousel-box"><img src="img/others/owl-image-1.jpg" alt=""/></li>
                     <li class="carousel-box"><img src="img/others/owl-image-4.jpg" alt=""/></li>
-                    <li class="carousel-box"><img src="img/others/owl-image-5.jpg" alt=""/></li>
+                    <li class="carousel-box"><img src="img/others/owl-image-5.jpg" alt=""/></li> -->
                   </ul>
                 </div>
                 <p>Our mission is to help every child be well-prepared for their futures with different solf-skills, fast and accurate <br/> in problem solving and make the best decision in every situations.        </p>
@@ -193,99 +116,7 @@
           </div>
         </div>
       </div>
-      <!-- Team-->
-      <div class="team-wrapper index-1">
-        <div class="container">
-          <!-- Section Name-->
-          <div class="section-name index-1">
-            <h1>Our Teachers</h1>
-            <p>Lorem ipsum dolor sit amet consectetuer adipiscing elit sed diam nonummy</p>
-            <div class="sep"></div>
-          </div>
-          <div class="team-members row">
-            <!-- Team Member 1-->
-            <div class="team col-md-6 col-sm-6 col-xs-12">
-              <div class="team-member color-1">
-                <ul class="meta">
-                  <li><a href="#">
-                      <h2>Anna Pickard</h2></a></li>
-                  <li>
-                    <h4>Vocal Teacher</h4>
-                  </li>
-                </ul>
-                <div class="image"><img src="img/teachers/teacher-1.png" alt="" class="img-responsive"/>
-                  <div class="mask index-1"><a href="#">
-                      <div class="icon">
-                        <div class="icon-square"><i class="fa fa-mail-forward"></i></div>
-                      </div></a></div>
-                </div>
-                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna</p>
-                <div class="line"></div>
-              </div>
-            </div>
-            <!-- Team Member 2-->
-            <div class="team col-md-6 col-sm-6 col-xs-12">
-              <div class="team-member color-2">
-                <ul class="meta">
-                  <li><a href="#">
-                      <h2>Abe Cherian</h2></a></li>
-                  <li>
-                    <h4>Cooking Teacher</h4>
-                  </li>
-                </ul>
-                <div class="image"><img src="img/teachers/teacher-2.png" alt="" class="img-responsive"/>
-                  <div class="mask index-1"><a href="#">
-                      <div class="icon">
-                        <div class="icon-square"><i class="fa fa-mail-forward"></i></div>
-                      </div></a></div>
-                </div>
-                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna</p>
-                <div class="line"></div>
-              </div>
-            </div>
-            <!-- Team Member 3-->
-            <div class="team col-md-6 col-sm-6 col-xs-12">
-              <div class="team-member color-3">
-                <ul class="meta">
-                  <li><a href="#">
-                      <h2>Lyin Clark</h2></a></li>
-                  <li>
-                    <h4>Drawing Teacher</h4>
-                  </li>
-                </ul>
-                <div class="image"><img src="img/teachers/teacher-3.png" alt="" class="img-responsive"/>
-                  <div class="mask index-1"><a href="#">
-                      <div class="icon">
-                        <div class="icon-square"><i class="fa fa-mail-forward"></i></div>
-                      </div></a></div>
-                </div>
-                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna</p>
-                <div class="line"></div>
-              </div>
-            </div>
-            <!-- Team Member 4-->
-            <div class="team col-md-6 col-sm-6 col-xs-12">
-              <div class="team-member color-4">
-                <ul class="meta">
-                  <li><a href="#">
-                      <h2>James Clock</h2></a></li>
-                  <li>
-                    <h4>Dancing Teacher</h4>
-                  </li>
-                </ul>
-                <div class="image"><img src="img/teachers/teacher-4.png" alt="" class="img-responsive"/>
-                  <div class="mask index-1"><a href="#">
-                      <div class="icon">
-                        <div class="icon-square"><i class="fa fa-mail-forward"></i></div>
-                      </div></a></div>
-                </div>
-                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna</p>
-                <div class="line"></div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+    
       <!-- News-->
       <div class="news-wrapper index-1">
         <div class="container">
@@ -408,7 +239,9 @@
       <!-- Portfolio-->
       <div class="portfolio-wrapper index-1">
         <!-- Section Name-->
-        <div class="section-name index-1">
+        <div class="section-name index-1" id="gallery">
+        </div>
+        <div class="section-name index-1" id="gallery">
           <h1>Our Gallery</h1>
           <div class="sep"></div>
         </div>
@@ -592,6 +425,63 @@
           </div>
         </div>
       </div>
+      
+      <!-- Login/Register-->
+    <div class="pricing-plans-wrapper" id="signup" >
+        <div class="container">
+        
+	        <div class="panels pricing row">
+	           <!-- Pricing Panel 1-->
+	            <div class="col-panel col-md-4 col-sm-6 col-xs-6">
+	            </div>
+	            <div class="col-panel col-md-4 col-sm-6 col-xs-6">
+	              <button type="button"  class="btn btn-success btn-block btn-lg hidden">Space</button>
+	            </div>
+	             <div class="col-panel col-md-4 col-sm-6 col-xs-6">
+	             
+	            </div>
+	          </div>
+	          <div class="panels pricing row">
+	           <!-- Pricing Panel 1-->
+	            <div class="col-panel col-md-4 col-sm-6 col-xs-6">
+	            </div>
+	            <div class="col-panel col-md-4 col-sm-6 col-xs-6">
+	              <button type="button"  class="btn btn-success btn-block btn-lg hidden">Space</button>
+	            </div>
+	             <div class="col-panel col-md-4 col-sm-6 col-xs-6">
+	             
+	            </div>
+	          </div>
+         
+	         <div class="section-name index-2">
+	            <div class="sep"></div>
+	            <h1 class="title">SignIn</h1>
+	          </div>
+	          <div class="panels pricing row">
+	           <!-- Pricing Panel 1-->
+	            <div class="col-panel col-md-4 col-sm-6 col-xs-6">
+	            </div>
+	            <div class="col-panel col-md-4 col-sm-6 col-xs-6">
+	              <button type="button" data-toggle="modal" data-target="#login" class="btn btn-info btn-block btn-lg">Login</button>
+	            </div>
+	             <div class="col-panel col-md-4 col-sm-6 col-xs-6">
+	             </div>
+	          </div>
+	          
+	          <div class="panels pricing row">
+	            <div class="col-panel col-md-3 col-sm-6 col-xs-6">
+	            </div>
+	            <div class="col-panel col-md-6 col-sm-6 col-xs-6">
+		            <button type="button" data-toggle="modal" data-target="#parentRegisterModal" class="btn btn-info  btn-lg">Parent Register</button>
+		            <button type="button" data-toggle="modal" data-target="#studentRegisterModal" class="btn btn-info  btn-lg">Student Register</button>
+	                <button type="button" data-toggle="modal" data-target="#teacherRegisterModal" class="btn btn-info  btn-lg">Teacher Register</button>
+	            </div>
+	            <div class="col-panel col-md-3 col-sm-6 col-xs-6">
+	            </div>
+	          </div>
+        </div>
+      </div>
+      
       <!-- Newsletter-->
       <div class="newsletter-wrapper index-1">
         <div class="container">
@@ -622,89 +512,11 @@
           </div>
         </div>
       </div>
-      <!--Register Modal content-->
-	   <div class="modal fade" id="register" role="dialog">
-	    <div class="modal-dialog">
-	    
-	      <!-- Modal content-->
-	      <div class="modal-content">
-	        <div class="modal-header">
-	          <button type="button" class="close" data-dismiss="modal">&times;</button>
-	          <!-- <h4 class="modal-title">Register Here</h4> -->
-	          <div class="section-name index-1">
-	            <h1>Register Here</h1>
-	            <div class="sep"></div>
-	          </div>
-	        </div>
-	        <div class="modal-body">
-	          <!-- Contact Page-->
-		        
-		          <div class="row">
-		            <!-- Contact-->
-		            <div class="col-md-12 contact-form-wrapper">
-		              <!-- Contact Form-->
-		              <form action="#" class="contact-form">
-		                <div class="field">
-		                  <input type="text" name="name" placeholder="Name"/>
-		                </div>
-		                <div class="field">
-		                  <input type="email" name="email" placeholder="E-mail"/>
-		                </div>
-		                <div class="field">
-		                  <input type="tel" name="phone" placeholder="Phone"/>
-		                </div>
-		                <div class="field">
-		                   <input type="tel" name="address" placeholder="Address"/>
-		                </div>
-		                <input type="submit" value="Register" class="submit"/>
-		              </form>
-		            </div>
-		          </div>
-	        
-	        </div>
-	       <!--  <div class="modal-footer">
-	          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-	        </div> -->
-	      </div>
-	      
-	    </div>
-	  </div>
-	  
-	  <!--Login Modal content-->
-	   <div class="modal fade" id="login" role="dialog">
-	    <div class="modal-dialog">
-	      <!-- Modal content-->
-	      <div class="modal-content">
-	        <div class="modal-header">
-	          <button type="button" class="close" data-dismiss="modal">&times;</button>
-	          <!-- <h4 class="modal-title">Login Here</h4> -->
-	          <div class="section-name index-1">
-	            <h1>Login Here</h1>
-	            <div class="sep"></div>
-	          </div>
-	        </div>
-	        <div class="modal-body">
-	          <!-- Contact Page-->
-		          <div class="row">
-		            <!-- Contact-->
-		            <div class="col-md-12 contact-form-wrapper">
-		              <!-- Contact Form-->
-		              <form action="#" class="contact-form">
-		                <div class="field">
-		                  <input type="text" name="username" placeholder="Username/Email"/>
-		                </div>
-		                <div class="field">
-		                   <input type="password" name="password" placeholder="Password"/>
-		                </div>
-		                <input type="submit" value="Login" class="submit"/>
-		              </form>
-		            </div>
-		          </div>
-	        
-	        </div>
-	      </div>
-	      
-	    </div>
-	  </div>
-     
+      
+      
+      <jsp:include page="/WEB-INF/views/signInModal.jsp"></jsp:include>
+      <jsp:include page="/WEB-INF/views/teacherRegister.jsp"></jsp:include>
+      <jsp:include page="/WEB-INF/views/parentRegister.jsp"></jsp:include>
+      <jsp:include page="/WEB-INF/views/studentRegister.jsp"></jsp:include>
+      
     </div>

@@ -1523,7 +1523,7 @@ ul.tags.blog li:hover {
 .panels.pricing .panel {
   background: #ffffff;
   border: 3px solid #ededed;
-  height: 617px;
+  height: 285px;
   -webkit-border-radius: 30px;
           border-radius: 30px;
 }
@@ -1835,6 +1835,7 @@ form.contact-form .field {
   margin-bottom: 20px;
 }
 form.contact-form .field input,
+form.contact-form .field select,
 form.contact-form .field textarea {
   display: block;
   width: 100%;
@@ -1849,31 +1850,38 @@ form.contact-form .field textarea {
           border-radius: 25px;
 }
 form.contact-form .field input::-moz-placeholder,
+form.contact-form .field select::-moz-placeholder,
 form.contact-form .field textarea::-moz-placeholder {
   color: #333333;
   opacity: 1;
 }
 form.contact-form .field input:-moz-placeholder,
+form.contact-form .field select:-moz-placeholder,
 form.contact-form .field textarea:-moz-placeholder {
   color: #333333;
   opacity: 1;
 }
 form.contact-form .field input::-webkit-input-placeholder,
+form.contact-form .field select::-webkit-input-placeholder,
 form.contact-form .field textarea::-webkit-input-placeholder {
   color: #333333;
   opacity: 1;
 }
 form.contact-form .field input:-ms-input-placeholder,
+form.contact-form .field select:-ms-input-placeholder,
 form.contact-form .field textarea:-ms-input-placeholder {
   color: #333333;
   opacity: 1;
 }
 form.contact-form .field input:focus,
 form.contact-form .field textarea:focus,
+form.contact-form .field select:focus,
 form.contact-form .field input:hover,
 form.contact-form .field textarea:hover,
+form.contact-form .field select:hover,
 form.contact-form .field input:active,
-form.contact-form .field textarea:active {
+form.contact-form .field textarea:active,
+form.contact-form .field select:active {
   -webkit-box-shadow: none;
           box-shadow: none;
   border: 1px solid #ffa800;
@@ -7552,6 +7560,9 @@ form.contact-form input[type="submit"] {
 .contact-page-wrapper .contact-form-wrapper .contact-form .field input:hover {
   border-color: #ffa800;
 }
+.contact-page-wrapper .contact-form-wrapper .contact-form .field select:hover {
+  border-color: #ffa800;
+}
 .contact-page-wrapper .contact-form-wrapper .contact-form .submit:hover {
   background: #cc8600;
   -webkit-transition: all 0.4s ease;
@@ -8201,4 +8212,16 @@ footer.footer-2 .footer h5.copyright {
 }
 footer.footer-2 .footer h5.copyright a {
   color: #ffa800;
+}
+#signup .container .left a:HOVER{
+	color: #ffa800;
+}
+#signup .container .right a:HOVER{
+	color: #636fe1;
+}
+#signup .container a{
+	color: black;
+}
+#signup .container h2 a:HOVER{
+	color: white;
 }

@@ -4,12 +4,14 @@ import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRegistration;
 
+import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.web.WebApplicationInitializer;
 import org.springframework.web.context.ContextLoaderListener;
+import org.springframework.web.context.request.RequestContextListener;
 import org.springframework.web.context.support.AnnotationConfigWebApplicationContext;
 import org.springframework.web.servlet.DispatcherServlet;
 
-
+@EnableAsync
 public class WebAppInit implements WebApplicationInitializer {
 
     @Override
@@ -19,6 +21,7 @@ public class WebAppInit implements WebApplicationInitializer {
 		rootContext.register(WebAppConfig.class);
 
 		container.addListener(new ContextLoaderListener(rootContext));
+		container.addListener(RequestContextListener.class);
 
 		rootContext.setServletContext(container);
 		

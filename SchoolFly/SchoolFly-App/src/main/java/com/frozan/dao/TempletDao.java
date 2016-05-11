@@ -4,7 +4,11 @@ import org.apache.log4j.Logger;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 
+@Configuration
+@EnableTransactionManagement
 public abstract class TempletDao {
 Logger logger=Logger.getLogger(TempletDao.class);
 	
