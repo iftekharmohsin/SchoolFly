@@ -10,7 +10,6 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -22,7 +21,7 @@ public class ParentHlo {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "PARENT_ID")
 	private int id;
-	
+	 
 	@Column(name="PR_FIRST_NAME")
 	private String firstName;
 	
@@ -40,9 +39,12 @@ public class ParentHlo {
 	
 	@Column(name="PHONE_NO")
 	private String phoneNo;
-	
+
 	@Column(name="EMAIL")
 	private String email;
+	
+	@Column(name="PASSWORD")
+	private String password;
 	
 	 @OneToMany(cascade=CascadeType.ALL,fetch=FetchType.LAZY,mappedBy="parentHlos")
 	 private List<StudentHlo> studentHlos;
@@ -118,8 +120,13 @@ public class ParentHlo {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	
-	
 
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
 
 }

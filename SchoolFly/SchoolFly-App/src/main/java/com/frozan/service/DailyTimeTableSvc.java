@@ -4,15 +4,19 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Isolation;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 
-import com.frozan.dao.DailyTimeTableDao;
+import com.frozan.dao.impl.DailyTimeTableDaoImpl;
 import com.frozan.entity.DailyTimeTable;
 import com.frozan.hlo.DailyTimeTableHlo;
 
 @Service("dailyTimeTableSvc")
+@Transactional(isolation=Isolation.READ_COMMITTED,propagation=Propagation.REQUIRED)
 public class DailyTimeTableSvc {
 	@Autowired
-	DailyTimeTableDao dailyTimeTableDao;
+	DailyTimeTableDaoImpl dailyTimeTableDao;
 
 	public void save(DailyTimeTableHlo dailyTimeTableHlo) {
 		dailyTimeTableDao.save(dailyTimeTableHlo);

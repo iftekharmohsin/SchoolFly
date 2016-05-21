@@ -4,15 +4,17 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Isolation;
+import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.frozan.dao.AllergiesDao;
-import com.frozan.dao.BusDao;
-import com.frozan.dao.DailyTimeTableDao;
-import com.frozan.dao.DestinationDao;
-import com.frozan.dao.ExamTimeTableDao;
-import com.frozan.dao.ParentDao;
-import com.frozan.dao.StudentDao;
+import com.frozan.dao.impl.AllergiesDaoImpl;
+import com.frozan.dao.impl.BusDaoImpl;
+import com.frozan.dao.impl.DailyTimeTableDaoImpl;
+import com.frozan.dao.impl.DestinationDaoImpl;
+import com.frozan.dao.impl.ExamTimeTableDaoImpl;
+import com.frozan.dao.impl.ParentDaoImpl;
+import com.frozan.dao.impl.StudentDaoImpl;
 import com.frozan.hlo.AllergiesHlo;
 import com.frozan.hlo.BusHlo;
 import com.frozan.hlo.DailyTimeTableHlo;
@@ -23,30 +25,30 @@ import com.frozan.hlo.SectionHlo;
 import com.frozan.hlo.StudentHlo;
 
 @Service("studentSvc")
-@Transactional
+@Transactional(isolation=Isolation.READ_COMMITTED,propagation=Propagation.REQUIRED)
 public class StudentSvc {
    
 	@Autowired
-	private StudentDao studentDao;
+	private StudentDaoImpl studentDao;
 	
 	@Autowired
-	private AllergiesDao allergiesDao;
+	private AllergiesDaoImpl allergiesDao;
 	
 	@Autowired
-	private BusDao busDao;
+	private BusDaoImpl busDao;
 	
 	@Autowired
-	private DailyTimeTableDao dailyTimeTableDao;
+	private DailyTimeTableDaoImpl dailyTimeTableDao;
 	
 	@Autowired
-	private ExamTimeTableDao examTimeTableDAo;
+	private ExamTimeTableDaoImpl examTimeTableDAo;
 	
 	@Autowired
-	private DestinationDao destinationDao;
+	private DestinationDaoImpl destinationDao;
 	
 	@Autowired
-	private ParentDao parentDao;
-	@Transactional
+	private ParentDaoImpl parentDao;
+	
 	public void save(StudentHlo studentHlo){
       studentDao.save(studentHlo);
 		

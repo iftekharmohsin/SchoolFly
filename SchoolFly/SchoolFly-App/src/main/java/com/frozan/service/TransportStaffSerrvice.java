@@ -4,17 +4,20 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Isolation;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 
-import com.frozan.dao.TransportStaffDao;
+import com.frozan.dao.impl.TransportStaffDaoImpl;
 import com.frozan.hlo.TransportStaffHlo;
 
 @Service("transportStaffSerrvice")
-
+@Transactional(isolation=Isolation.READ_COMMITTED,propagation=Propagation.REQUIRED)
 public class TransportStaffSerrvice {
 	
-	
 	@Autowired
-	TransportStaffDao transportStaffDao;
+	TransportStaffDaoImpl transportStaffDao;
+	
 	public void save(TransportStaffHlo transportStaffHlo)
 	{
 		transportStaffDao.save(transportStaffHlo);

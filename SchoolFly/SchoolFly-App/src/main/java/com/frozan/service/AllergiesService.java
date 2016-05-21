@@ -4,16 +4,18 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Isolation;
+import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.frozan.dao.AllergiesDao;
+import com.frozan.dao.impl.AllergiesDaoImpl;
 import com.frozan.hlo.AllergiesHlo;
 
 @Service("allergiesService")
-@Transactional
+@Transactional(isolation=Isolation.READ_COMMITTED,propagation=Propagation.REQUIRED)
 public class AllergiesService {
 	@Autowired
-	AllergiesDao allergiesDao;
+	AllergiesDaoImpl allergiesDao;
 
 	public void save(AllergiesHlo allergiesHlo) {
 		allergiesDao.save(allergiesHlo);

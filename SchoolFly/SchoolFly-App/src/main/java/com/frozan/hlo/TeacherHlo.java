@@ -35,6 +35,12 @@ public class TeacherHlo {
 	@Column(name="THR_MIDDLE_NAME")
 	private String middleName;
 	
+	@Column(name="EMAIL")
+	private Date email;
+	
+	@Column(name="PASSWORD")
+	private String password;
+	
 	@Column(name="THR_GENDER")
 	private String gender;
 	
@@ -117,7 +123,31 @@ public class TeacherHlo {
 		this.dob = dob;
 	}
 
-/*	public SchoolHlo getSchool() {
+	public Date getEmail() {
+		return email;
+	}
+
+	public void setEmail(Date email) {
+		this.email = email;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	public List<ClassHlo> getClassHlo() {
+		return classHlo;
+	}
+
+	public void setClassHlo(List<ClassHlo> classHlo) {
+		this.classHlo = classHlo;
+	}
+
+	public SchoolHlo getSchool() {
 		return school;
 	}
 
@@ -125,19 +155,21 @@ public class TeacherHlo {
 		this.school = school;
 	}
 
-	public Set<SubjectHlo> getSubjects() {
-		return subjects;
+	public List<SubjectHlo> getSubjectHlos() {
+		return subjectHlos;
 	}
 
-	public void setSubjects(Set<SubjectHlo> subjects) {
-		this.subjects = subjects;
+	public void setSubjectHlos(List<SubjectHlo> subjectHlos) {
+		this.subjectHlos = subjectHlos;
 	}
 
-	public List<ClassHlo> getClasses() {
-		return classes;
+	public List<SectionHlo> getSectionHlos() {
+		return sectionHlos;
 	}
 
-	public void setClasses(List<ClassHlo> classes) {
-		this.classes = classes;
-	}*/
+	public void setSectionHlos(List<SectionHlo> sectionHlos) {
+		this.sectionHlos = sectionHlos;
+	}
+
+
 }

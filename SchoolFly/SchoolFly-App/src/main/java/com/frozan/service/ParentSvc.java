@@ -4,17 +4,19 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Isolation;
+import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.frozan.dao.ParentDao;
+import com.frozan.dao.impl.ParentDaoImpl;
 import com.frozan.hlo.ParentHlo;
 
 @Service("parentSvc")
-@Transactional
+@Transactional(isolation=Isolation.READ_COMMITTED,propagation=Propagation.REQUIRED)
 public class ParentSvc {
 
 	@Autowired
-	ParentDao parentDao;
+	ParentDaoImpl parentDao;
 
 	public boolean save(ParentHlo parentHlo) {
 		boolean b= parentDao.save(parentHlo);

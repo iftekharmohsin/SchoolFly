@@ -54,7 +54,7 @@ public class ParentController {
 		try{
 			
 			if(null != parentHlo){
-				  ParentHlo parent= parentSvc.findParentByEmail(parentHlo.getEmail());
+				 ParentHlo parent= parentSvc.findParentByEmail(parentHlo.getEmail());
 				  if(null != parent){
 					  session.setAttribute("firstname", parent.getFirstName()); 
 					  return "parentpage";

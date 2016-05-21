@@ -4,15 +4,18 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Isolation;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 
-import com.frozan.dao.ClassDao;
+import com.frozan.dao.impl.ClassDaoImpl;
 import com.frozan.hlo.ClassHlo;
 
 @Service("classService")
-
+@Transactional(isolation=Isolation.READ_COMMITTED,propagation=Propagation.REQUIRED)
 public class ClassService {
 	@Autowired
-	ClassDao classDao;
+	ClassDaoImpl classDao;
 	public void save(ClassHlo classHlo)
 	{
 		classDao.save(classHlo);
