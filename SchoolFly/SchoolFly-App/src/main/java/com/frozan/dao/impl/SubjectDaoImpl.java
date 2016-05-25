@@ -13,6 +13,7 @@ import org.springframework.stereotype.Repository;
 import com.frozan.dao.interfaces.AbstractDao;
 import com.frozan.dao.interfaces.SubjectDao;
 import com.frozan.exception.DaoExceptionMsg;
+import com.frozan.exception.TelentCloudDaoException;
 import com.frozan.exception.TelentCloudGenericException;
 import com.frozan.hlo.SubjectHlo;
 
@@ -25,33 +26,23 @@ public class SubjectDaoImpl  extends AbstractDao implements SubjectDao{
 	@Override
 	public void save(SubjectHlo subjectHlo)
 	{  
-		persist(subjectHlo);
-/*		try {
-			logger.debug("subject  is about to be saved : "
-					+subjectHlo.getName());
-			
-			logger.debug("subject saved succussfully");
+		try {	
+			logger.debug("subjectHlo is about to be saved : "+subjectHlo.getId()+" " );
+			persist(subjectHlo);
+			logger.debug("subjectHlo saved succussfully");
 		} catch (JDBCConnectionException e) {
-			logger.error("JDBCConnectionException occured while saving subjects : "
-					+ subjectHlo.getName() + " : " + e);
-			throw new FrozanGenericException(
-					ExceptionMessage.CONSTVAIlATION_MSG.getMessage());
+			logger.error("JDBCConnectionException occured while saving subjectHlo : "+subjectHlo.getId()+" " + " : " + e);
+			throw new TelentCloudDaoException(DaoExceptionMsg.CONNECTION_FAILED.getMessage());
 		} catch (ConstraintViolationException e) {
-			logger.error("ConstraintViolationException occured while saving subject : "
-					+subjectHlo.getName()+ " : " + e);
-			throw new FrozanGenericException(
-					ExceptionMessage.CONSTVAIlATION_MSG.getMessage());
+			logger.error("ConstraintViolationException occured while saving subjectHlo : "+subjectHlo.getId()+" "+" : "+ e);
+			throw new TelentCloudDaoException(DaoExceptionMsg.CONSTRAINT_ERROR.getMessage()+" while saving:"+subjectHlo.getId()+" "+ e);
 		} catch (HibernateException e) {
-			logger.error("HibernateException occured while saving student : "
-					+ subjectHlo.getName()+ " : " + e);
-			throw new FrozanGenericException(
-					ExceptionMessage.CONSTVAIlATION_MSG.getMessage());
-		} catch (Exception e) {
-			logger.error("Exception occured while saving student : "
-					+ subjectHlo.getName()+ " : " + e);
-			throw new FrozanGenericException(e.getMessage());
-		}*/
-		
+			logger.error("HibernateException occured while saving subjectHlo : "+subjectHlo.getId()+" "+" : "+ e);
+			throw new TelentCloudDaoException(DaoExceptionMsg.UPDATE_FAILED.getMessage()+ ": subjectHlo id:"+subjectHlo.getId()+" " +e);
+		} catch (Exception e){
+			logger.error("Exception occured while saving subjectHlo : "+subjectHlo.getId()+" "+ " : "+ e);
+			throw new TelentCloudDaoException(e.getMessage());
+		}
 	}
 	@Override
 	public void modify(SubjectHlo subjectHlo)
