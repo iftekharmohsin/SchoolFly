@@ -19,6 +19,6 @@ public class CLassController {
 	@RequestMapping(value="/addClass",method=RequestMethod.POST)
 	public void addClass(@RequestBody ClassHlo classHlo){
 		classService.save(classHlo);
-		
 	}
+	
 }

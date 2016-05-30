@@ -1,8 +1,9 @@
-package com.frozan.controller;
+ package com.frozan.controller;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,7 +16,7 @@ import com.frozan.hlo.StudentHlo;
 import com.frozan.service.DailyTimeTableSvc;
 import com.frozan.service.StudentSvc;
 
-@RestController
+@Controller
 @RequestMapping("student")
 public class StudentController {
 
@@ -25,6 +26,11 @@ public class StudentController {
 	@Autowired
 	private DailyTimeTableSvc dailyTimeTableSvc;
 	//*******Student**************
+	@RequestMapping(value="/{id}",method=RequestMethod.GET)
+	public StudentHlo getStudentById(String studentId){
+		
+		return new StudentHlo();
+	}
 	@RequestMapping(value="/saveStudent",method=RequestMethod.POST)
 	public void saveStudent( @RequestBody StudentHlo studentHlo){		
 		studentSvc.save(studentHlo);
