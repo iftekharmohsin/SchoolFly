@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import com.frozan.hlo.ParentHlo;
 import com.frozan.hlo.StudentHlo;
 import com.frozan.hlo.TeacherHlo;
-import com.frozan.service.StudentSvc;
+import com.frozan.service.impl.StudentSvc;
 
 @Controller
 public class IndexController {

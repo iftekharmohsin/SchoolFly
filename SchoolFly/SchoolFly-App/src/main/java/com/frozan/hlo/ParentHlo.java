@@ -40,7 +40,7 @@ public class ParentHlo {
 	@Column(name="PHONE_NO")
 	private String phoneNo;
 
-	@Column(name="EMAIL")
+	@Column(name="EMAIL") 
 	private String email;
 	
 	@Column(name="PASSWORD")

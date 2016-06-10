@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.frozan.hlo.AllergiesHlo;
 import com.frozan.hlo.StudentHlo;
-import com.frozan.service.AllergiesService;
+import com.frozan.service.impl.AllergiesService;
 
 @RestController
 @RequestMapping("allergies")

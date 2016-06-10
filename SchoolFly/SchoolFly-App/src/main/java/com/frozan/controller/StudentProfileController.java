@@ -17,7 +17,7 @@ import com.frozan.hlo.DestinationHlo;
 import com.frozan.hlo.ExamTimeTableHlo;
 import com.frozan.hlo.ParentHlo;
 import com.frozan.hlo.StudentHlo;
-import com.frozan.service.StudentSvc;
+import com.frozan.service.impl.StudentSvc;
 
 @RestController
 @RequestMapping("student/{studentId}")

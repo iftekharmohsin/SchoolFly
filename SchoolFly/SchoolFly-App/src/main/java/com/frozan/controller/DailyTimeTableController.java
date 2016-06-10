@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.frozan.hlo.DailyTimeTableHlo;
-import com.frozan.service.DailyTimeTableSvc;
+import com.frozan.service.impl.DailyTimeTableSvc;
 
 @RestController
 @RequestMapping("dailytimetable")

@@ -23,19 +23,32 @@
 		              <!-- Contact Form-->
 		              <form:form class="contact-form" id='commonSignupModal' action='saveParent' method="POST" modelAttribute="parentVo">
 		                <div class="field">
-		                  <form:input type="text" path="firstName" name="name" placeholder="Name"/>
+		                  <form:input type="text" path="firstName" name="firstName" placeholder="First Name"/>
 		                </div>
 		                <div class="field">
-		                  <form:input type="email" path="email" name="email" placeholder="E-mail"/>
+		                  <form:input type="text" path="lastName" name="lastName" placeholder="Last Name"/>
 		                </div>
 		                <div class="field">
-		                  <form:input type="tel" path="phoneNo" name="phone" placeholder="Phone"/>
+		                  <form:input type="text" path="middleName" name="middleName" placeholder="Middle Name"/>
 		                </div>
 		                <div class="field">
-		                  <form:password  path="phoneNo" name="phone" placeholder="Password"/>
+		                  <form:input type="text" path="gender" name="gender" placeholder="Gender"/>
 		                </div>
 		                <div class="field">
-		                 <form:password  path="phoneNo" name="phone" placeholder="Retype Password"/>
+		                  <form:input type="text" path="email" name="email" placeholder="E-mail"/>
+		                </div>
+		                <div class="field">
+		                  <form:input type="text" path="dob" name="dob" placeholder="DOB"/>
+		                </div>
+		                
+		                <div class="field">
+		                  <form:input type="text" path="phone" name="phone" placeholder="Phone"/>
+		                </div>
+		                <div class="field">
+		                  <form:password  path="password" name="password" placeholder="Password"/>
+		                </div>
+		                <div class="field">
+		                 <form:password  path="repassword" name="repassword" placeholder="Retype Password"/>
 		                </div>
 		                <input type="submit" value="Register" class="submit"/>
 		              </form:form>

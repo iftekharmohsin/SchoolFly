@@ -13,9 +13,7 @@ import com.frozan.dao.interfaces.AbstractDao;
 import com.frozan.dao.interfaces.AdminDao;
 import com.frozan.exception.DaoExceptionMsg;
 import com.frozan.exception.TelentCloudDaoException;
-import com.frozan.exception.TelentCloudGenericException;
 import com.frozan.hlo.AdminHlo;
-import com.frozan.hlo.ClassHlo;
 
 @Repository("adminDao")
 public class AdminDaoImpl extends AbstractDao implements AdminDao {
@@ -119,25 +117,8 @@ public class AdminDaoImpl extends AbstractDao implements AdminDao {
 	public AdminHlo getAdminById(int id) {
 		AdminHlo adminHlo = null;
 		adminHlo = new AdminHlo();
-		try {
-			logger.debug("Finding AdminHlo is by ID : "+adminHlo.getAdminFirstName()+" "+ adminHlo.getAdminLastName());
-		
-			adminHlo = (AdminHlo) getSession().createQuery(
+		adminHlo = (AdminHlo) getSession().createQuery(
 				"from AdminHlo a where a.id=id").uniqueResult();
-			logger.debug("AdminHlo Found succussfully");
-		} catch (JDBCConnectionException e) {
-			logger.error("JDBCConnectionException occured while finding AdminHlo : "+ adminHlo.getAdminFirstName()+" "+ adminHlo.getAdminLastName()+ " : "+ e);
-			throw new TelentCloudDaoException(DaoExceptionMsg.CONNECTION_FAILED.getMessage());
-		} catch (ConstraintViolationException e) {
-			logger.error("ConstraintViolationException occured while finding application : "+ adminHlo.getAdminFirstName()+" "+ adminHlo.getAdminLastName()+ " : "+ e);
-			throw new TelentCloudDaoException(DaoExceptionMsg.CONSTRAINT_ERROR.getMessage()+" while saving:"+adminHlo.getAdminFirstName()+" "+ adminHlo.getAdminLastName() +e);
-		} catch (HibernateException e) {
-			logger.error("HibernateException occured while finding application : "+ adminHlo.getAdminFirstName()+" "+ adminHlo.getAdminLastName()+ " : "+ e);
-			throw new TelentCloudDaoException(DaoExceptionMsg.UPDATE_FAILED.getMessage()+ ": AdminHlo Name:"+adminHlo.getAdminFirstName()+" "+ adminHlo.getAdminLastName() +e);
-		} catch (Exception e){
-			logger.error("Exception occured while finding application : "+ adminHlo.getAdminFirstName()+" "+ adminHlo.getAdminLastName()+ " : "+ e);
-			throw new TelentCloudDaoException(e.getMessage());
-		}
 		return adminHlo;
 	}
 
@@ -150,30 +131,7 @@ public class AdminDaoImpl extends AbstractDao implements AdminDao {
 	public List<AdminHlo> getAllAdmin() {
 		List<AdminHlo> adminHlo = null;
 		adminHlo = new ArrayList<AdminHlo>();
-		try {
-			logger.debug("Admin is about to be selected : ");
-			adminHlo = getSession().createQuery("from AdminHlo").list();
-			logger.debug("Admin selected succussfully");
-		} catch (JDBCConnectionException e) {
-			logger.error("JDBCConnectionException occured while selected Admin: "
-					+ adminHlo.size() + " : " + e);
-			throw new TelentCloudGenericException(
-					DaoExceptionMsg.CONSTVAIlATION_MSG.getMessage());
-		} catch (ConstraintViolationException e) {
-			logger.error("ConstraintViolationException occured while selected Admin: "
-					+ adminHlo.size() + " : " + e);
-			throw new TelentCloudGenericException(
-					DaoExceptionMsg.CONSTVAIlATION_MSG.getMessage());
-		} catch (HibernateException e) {
-			logger.error("HibernateException occured while seleted Admin : "
-					+ adminHlo.size() + " : " + e);
-			throw new TelentCloudGenericException(
-					DaoExceptionMsg.CONSTVAIlATION_MSG.getMessage());
-		} catch (Exception e) {
-			logger.error("Exception occured while selected Admin : "
-					+ adminHlo.size() + " : " + e);
-			throw new TelentCloudGenericException(e.getMessage());
-		}
+		adminHlo = getSession().createQuery("from AdminHlo").list();
 		return adminHlo;
 	}
 }

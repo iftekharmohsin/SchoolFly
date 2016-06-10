@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.frozan.hlo.BusHlo; 
-import com.frozan.service.BusService;
+import com.frozan.service.impl.BusService;
 @RestController
 @RequestMapping("bus")
 public class BusController {
