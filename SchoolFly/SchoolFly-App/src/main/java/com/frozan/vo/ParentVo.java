@@ -1,12 +1,10 @@
 package com.frozan.vo;
 
-import java.util.Date;
 
 public class ParentVo {
 	
 	private String firstName;
 	private String lastName;
-	private String middleName;
 	private String gender;
 	private String dob;
 	private String phone;
@@ -26,12 +24,7 @@ public class ParentVo {
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
-	public String getMiddleName() {
-		return middleName;
-	}
-	public void setMiddleName(String middleName) {
-		this.middleName = middleName;
-	}
+	
 	public String getGender() {
 		return gender;
 	}

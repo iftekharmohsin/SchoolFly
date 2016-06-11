@@ -32,11 +32,6 @@ public class StudentHlo {
 	@Column(name="STD_MIDDLE_NAME")
 	private String stdMiddleName;
 	
-	@Column(name="EMAIL")
-	private Date email;
-	
-	@Column(name="PASSWORD")
-	private String password;
 	
 	@Column(name="STD_GENDER")
 	private String stdGender;
@@ -52,6 +47,7 @@ public class StudentHlo {
 	
 	 @OneToMany(cascade=CascadeType.ALL,fetch=FetchType.EAGER)
 	private Set<AllergiesHlo> allergiesHlo;
+	
 		
 	@OneToOne(cascade=CascadeType.ALL,fetch=FetchType.EAGER)
 	private BusHlo busHlos;
@@ -162,32 +158,4 @@ public class StudentHlo {
 	public void setParentHlos(ParentHlo parentHlos) {
 		this.parentHlos = parentHlos;
 	}
-
-	public Date getEmail() {
-		return email;
-	}
-
-	public void setEmail(Date email) {
-		this.email = email;
-	}
-
-	public String getPassword() {
-		return password;
-	}
-
-	public void setPassword(String password) {
-		this.password = password;
-	}
-
-	public SectionHlo getSectionhlo() {
-		return sectionhlo;
-	}
-
-	public void setSectionhlo(SectionHlo sectionhlo) {
-		this.sectionhlo = sectionhlo;
-	}
-  
-	
-	
-	
 }

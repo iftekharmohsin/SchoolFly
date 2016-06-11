@@ -21,15 +21,12 @@ public class ParentHlo {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "PARENT_ID")
 	private int id;
-	 
+	
 	@Column(name="PR_FIRST_NAME")
 	private String firstName;
 	
 	@Column(name="PR_LAST_NAME")
 	private String lastName;
-	
-	@Column(name="PR_MIDDLE_NAME")
-	private String middleName;
 	
 	@Column(name="PR_GENDER")
 	private String gender;
@@ -39,12 +36,15 @@ public class ParentHlo {
 	
 	@Column(name="PHONE_NO")
 	private String phoneNo;
-
-	@Column(name="EMAIL") 
-	private String email;
 	
-	@Column(name="PASSWORD")
+	@Column(name="EMAIL")
+	private String email;
+
+	@Column(name="PR_PASSWORD")
 	private String password;
+
+	@Column(name="PR_REPASSWORD")
+	private String rePassword;
 	
 	 @OneToMany(cascade=CascadeType.ALL,fetch=FetchType.LAZY,mappedBy="parentHlos")
 	 private List<StudentHlo> studentHlos;
@@ -73,13 +73,7 @@ public class ParentHlo {
 		this.lastName = lastName;
 	}
 
-	public String getMiddleName() {
-		return middleName;
-	}
-
-	public void setMiddleName(String middleName) {
-		this.middleName = middleName;
-	}
+	
 
 	public String getGender() {
 		return gender;
@@ -128,5 +122,16 @@ public class ParentHlo {
 	public void setPassword(String password) {
 		this.password = password;
 	}
+
+	public String getRePassword() {
+		return rePassword;
+	}
+
+	public void setRePassword(String rePassword) {
+		this.rePassword = rePassword;
+	}
+	
+	
+
 
 }

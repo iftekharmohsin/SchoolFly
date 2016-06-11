@@ -30,9 +30,12 @@ private static final Logger logger = Logger.getLogger(AdminController.class);
 	
 	@RequestMapping(value = { "/kidzone", "/" }, method = RequestMethod.GET)
 	public String firstPage(ModelMap model) {
+		System.out.println("******************************here *************************");
+		
 		model.addAttribute("parentVo", new ParentHlo());
 		model.addAttribute("studentVo", new StudentHlo());
 		model.addAttribute("teacherVo", new TeacherHlo());
+		
 		return "homepage";
 	}
 	

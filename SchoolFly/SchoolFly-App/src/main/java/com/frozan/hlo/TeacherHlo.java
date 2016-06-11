@@ -35,17 +35,23 @@ public class TeacherHlo {
 	@Column(name="THR_MIDDLE_NAME")
 	private String middleName;
 	
-	@Column(name="EMAIL")
-	private Date email;
-	
-	@Column(name="PASSWORD")
-	private String password;
-	
 	@Column(name="THR_GENDER")
 	private String gender;
 	
 	@Column(name="THR_DOB")
 	private Date dob;
+	
+	@Column(name="THR_PHONE_NO")
+	private String phoneNo;
+	
+	@Column(name="THR_EMAIL")
+	private String email;
+
+	@Column(name="THR_PASSWORD")
+	private String password;
+
+	@Column(name="THR_REPASSWORD")
+	private String rePassword;
 
 	@ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinTable(name = "class_teacher_tb", joinColumns = { 
@@ -123,11 +129,19 @@ public class TeacherHlo {
 		this.dob = dob;
 	}
 
-	public Date getEmail() {
+	public String getPhoneNo() {
+		return phoneNo;
+	}
+
+	public void setPhoneNo(String phoneNo) {
+		this.phoneNo = phoneNo;
+	}
+
+	public String getEmail() {
 		return email;
 	}
 
-	public void setEmail(Date email) {
+	public void setEmail(String email) {
 		this.email = email;
 	}
 
@@ -139,15 +153,15 @@ public class TeacherHlo {
 		this.password = password;
 	}
 
-	public List<ClassHlo> getClassHlo() {
-		return classHlo;
+	public String getRePassword() {
+		return rePassword;
 	}
 
-	public void setClassHlo(List<ClassHlo> classHlo) {
-		this.classHlo = classHlo;
+	public void setRePassword(String rePassword) {
+		this.rePassword = rePassword;
 	}
 
-	public SchoolHlo getSchool() {
+/*	public SchoolHlo getSchool() {
 		return school;
 	}
 
@@ -155,21 +169,19 @@ public class TeacherHlo {
 		this.school = school;
 	}
 
-	public List<SubjectHlo> getSubjectHlos() {
-		return subjectHlos;
+	public Set<SubjectHlo> getSubjects() {
+		return subjects;
 	}
 
-	public void setSubjectHlos(List<SubjectHlo> subjectHlos) {
-		this.subjectHlos = subjectHlos;
+	public void setSubjects(Set<SubjectHlo> subjects) {
+		this.subjects = subjects;
 	}
 
-	public List<SectionHlo> getSectionHlos() {
-		return sectionHlos;
+	public List<ClassHlo> getClasses() {
+		return classes;
 	}
 
-	public void setSectionHlos(List<SectionHlo> sectionHlos) {
-		this.sectionHlos = sectionHlos;
-	}
-
-
+	public void setClasses(List<ClassHlo> classes) {
+		this.classes = classes;
+	}*/
 }

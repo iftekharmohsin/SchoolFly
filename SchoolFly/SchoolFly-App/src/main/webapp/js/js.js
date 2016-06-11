@@ -22,6 +22,14 @@ $(window).on("load", function() {
        }, 1000);
 
    });
+   
+  var dateformat = /^(0?[1-9]|[12][0-9]|3[01])[\/\-](0?[1-9]|1[012])[\/\-]\d{4}$/;
+  
+  $(".teacherForm").delegate(".form-cancel","click", function(){
+	  this.form.reset(); 
+  });
+	   /* $( "#datepicker" ).datepicker();
+	    $( "#datepicker" ).datepicker("show");*/
   
   /*$("#register #commonSignupModal").delegate('#roleOptn', 'change', function(){debugger;
 	  
@@ -83,7 +91,14 @@ $(window).on("load", function() {
 });
 
 $(document).ready(function() {
-
+	$("#datepicker" ).datepicker({
+	      format: "dd/mm/yyyy"
+	  });
+	
+	/* $('.myNavbar').delegate("#parentTimetable", 'click', function(){
+			alert();
+		});*/
+	 
   // Preloader
   $("#preloaderKDZ").delay(450).fadeOut(950);
 
@@ -94,7 +109,7 @@ $(document).ready(function() {
     $(this).find('.dropdown-menu').stop(true, true).delay(250).fadeOut(400);
   });
 
-
+ 
   // Search
   $(".search-nav").on("click", function() {
     $(".search-form").slideDown(300);
@@ -107,14 +122,14 @@ $(document).ready(function() {
   // Counters
   if ($('.counters').length > 0) {
 
-   /* var options = {  
+    var options = {  
       useEasing: true,
         useGrouping: true,
         separator: '',
         decimal: '.',
         prefix: '',
         suffix: ''
-    };*/
+    };
     $('.counters').waypoint(function() {
       var numAnim = new CountUp("counting-1", 0, 12, 0, 6.5, options);
       numAnim.start();
@@ -281,11 +296,11 @@ $(document).ready(function() {
   (function($) {
     if (!$(".progress-bar-inner .inner").length) return;
 
-    $('.progress-bar-inner .inner').waypoint(function() {
+   /* $('.progress-bar-inner .inner').waypoint(function() {
       $('.progress-bar-inner .inner').addClass('animate');
     }, {
       offset: '100%'
-    });
+    });*/
   })(jQuery);
 
   (function($) {
@@ -315,6 +330,8 @@ $(document).ready(function() {
     });
   })(jQuery);
   
+  
+ 
   
 	   
 });
